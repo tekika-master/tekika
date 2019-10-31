@@ -1,0 +1,25 @@
+<%= form_for :reviews,url: {action: :create} do |f| %>
+
+ <%= f.hidden_field :product, value: @product %>
+<div class="col-md-6 col-md-offset-3">
+
+        <div class="field" id="star">
+            <%= f.label :star %>
+            <%= f.hidden_field :star, id: :review_star %>
+          </div>
+
+         <%= f.text_area :impression, :class => "form-control", :size => "50x20"  %><br>
+         <%= f.submit "レビュー評価", :class => "btn btn-primary" %>
+
+ </div>
+
+<% end %>
+
+<script>
+$('#star').raty({
+  size     : 36,
+  starOff:  '<%= asset_path('star-off.png') %>',
+  starOn : '<%= asset_path('star-on.png') %>',
+  scoreName: 'review[star]' 
+});
+</script>

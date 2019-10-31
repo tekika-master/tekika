@@ -1,0 +1,6 @@
+#ifndef EXTCONF_H
+#define EXTCONF_H
+#define HAVE_MAGICK_MAGICKCORE_H 1
+#define RUBY_VERSION_STRING ruby 2.5.3
+#define RMAGICK_VERSION_STRING RMagick 3.2.0
+#endif

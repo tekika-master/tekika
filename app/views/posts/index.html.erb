@@ -1,0 +1,14 @@
+<ul class="posting">
+  <p>Past Exams </p>
+</ul>
+
+
+<li class="post-searching col-md-7">
+ <%= render 'posts/search_form' %>
+</li>
+
+<p class="posts-post">
+  <%= link_to '過去問を投稿する', post_path, class: 'btn btn-lg btn-primary'  %>
+</p>
+
+   <%= render 'posts/posts', posts: @posts %>

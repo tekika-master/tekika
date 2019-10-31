@@ -1,0 +1,71 @@
+<div class="row">
+  <aside class="col-sm-2.5">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title"><%= @user.name %></h3>
+      </div>
+      <div class="card-body">
+        <% if @user.image? %>
+          <%= image_tag(@user.image.url,class:'user-image',:size => '220x220')  %>
+        <% else %>
+          <%= image_tag "/assets/user.jpg",class:'user-image', :size => '220x220' %>
+        <% end %>
+      </div>
+    </div>
+    <div class="card-footer">
+      <p><%= @user.intro %></p>
+    </div>
+
+
+<% @good = 0 %>
+<% @normal = 0 %>
+<% @bad = 0 %>
+<% @user.products.each do |product| %>
+<% product.reviews.each do |review| %>
+  <% if review.feeling == "good" %>
+    <% @good += 1 %>
+  <% elsif review.feeling == "normal" %>
+    <% @normal += 1 %>
+  <% elsif review.feeling == "bad"%>
+    <% @bad += 1 %>
+  <% end %>
+<% end %>
+<% end %>
+
+<div class="user-star">
+  <li>😊</li>
+  <li>🙂</li>
+  <li>😨</li>
+</div>
+<div class="star-number">
+
+<li><%= link_to @good, reviewed_path(id: @user.id) %></li>
+<li><%= link_to @normal, reviewed_path(id: @user.id) %></li>
+<li><%= link_to @bad, reviewed_path(id: @user.id) %></li>
+</div>
+
+    <li class="profileedit">
+      <%= link_to 'プロフィールを編集する', edit_user_path(@user), :style=>"color:white;" ,class: 'btn btn-lg btn-warning' %>
+    </li>
+
+  </aside>
+
+  <div class="user-infomation col-sm-9">
+    <ul class="nav nav-tabs nav-justified mb-3">
+      <% if current_user == @user %>
+        <li class="nav-item"><a href="<%= likes_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(likes_user_path(@user)) %>">いいね  <span class="badge badge-secondary"><%= @count_likes %></span></a></li>
+        <li class="nav-item"><a href="<%= exhibition_path(@user) %>" class="nav-link <%= 'active' if current_page?(exhibition_path(@user)) %>">出品一覧  <span class="badge badge-secondary"><%=@count_products  %></span></a></li>
+        <li class="nav-item"><a href="<%= evaluates_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(evaluates_user_path(@user)) %>">購入一覧  <span class="badge badge-secondary"><%= @count_evaluates %></span></a></li>
+        <li class="nav-item"><a href="<%= problem_path(@user) %>" class="nav-link <%= 'active' if current_page?(problem_path(@user)) %>">My過去問  <span class="badge badge-secondary"><%= @count_problems %></span></a></li>
+        <li class="nav-item"><a href="<%= micropost_path(@user) %>" class="nav-link <%= 'active' if current_page?(micropost_path(@user)) %>">Tweets  <span class="badge badge-secondary"><%= @count_microposts %></span></a></li>
+      <% else %>
+        <li class="nav-item"><a href="<%= exhibition_path(@user) %>" class="nav-link <%= 'active' if current_page?(exhibition_path(@user)) %>">出品一覧  <span class="badge badge-secondary"><%=@count_products  %></span></a></li>
+        <li class="nav-item"><a href="<%= problem_path(@user) %>" class="nav-link <%= 'active' if current_page?(problem_path(@user)) %>">My過去問  <span class="badge badge-secondary"><%= @count_problems %></span></a></li>
+        <li class="nav-item"><a href="<%= micropost_path(@user) %>" class="nav-link <%= 'active' if current_page?(micropost_path(@user)) %>">Tweets  <span class="badge badge-secondary"><%= @count_microposts %></span></a></li>
+      <% end %>
+
+
+
+    </ul>
+  </div>
+</div>

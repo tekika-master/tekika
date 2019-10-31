@@ -1,0 +1,15 @@
+current directory: /home/ec2-user/environment/tekika/vendor/bundle/ruby/2.5.0/gems/bindex-0.7.0/ext/skiptrace
+/home/ec2-user/.rvm/rubies/ruby-2.5.3/bin/ruby -r ./siteconf20190629-9161-1gipgfo.rb extconf.rb
+creating Makefile
+
+current directory: /home/ec2-user/environment/tekika/vendor/bundle/ruby/2.5.0/gems/bindex-0.7.0/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /home/ec2-user/environment/tekika/vendor/bundle/ruby/2.5.0/gems/bindex-0.7.0/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/cruby.so
+
+current directory: /home/ec2-user/environment/tekika/vendor/bundle/ruby/2.5.0/gems/bindex-0.7.0/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.so ./.gem.20190629-9161-1nem86r/skiptrace

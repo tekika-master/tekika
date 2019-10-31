@@ -1,0 +1,14 @@
+<div class="row">
+ <% posts.each do |post| %>
+ <div class="col-md-3 text-center">
+      <div id="item-list">
+       <div>
+         <%= link_to image_path post.image  do %>
+           <li>	<%= image_tag(post.image.to_s, class:'image') %></li>
+         <% end %>
+         <li class="post-name"><%= post.problem %></li>
+       </div>
+      </div>
+  </div>
+  <% end %>
+</div>

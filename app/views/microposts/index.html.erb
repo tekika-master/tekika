@@ -1,0 +1,26 @@
+<p class="micropost-name">Twitter for Keio</p>
+<div class="micropost row">
+    <aside class="col-sm-5">
+      <div class="twitter-searching col-md-12">
+         <%= render 'microposts/search_form' %>
+      </div>
+      <div class="twitter-post">
+      <%= form_with(model: @micropost, local: true) do |f| %>
+        <div class="form-group">
+          <%= f.text_area :content, class: 'form-control', rows: 5 %>
+        </div>
+        <div class="form-group">
+          <%= f.label :info, 'タグ'  %>
+          <%= f.radio_button :info, '', {:checked => true} %>指定なし
+          <%= f.radio_button :info, 1 %>楽単
+          <%= f.radio_button :info, 2 %>講義
+          <%= f.radio_button :info, 3 %>試験
+        </div>
+        <%= f.submit '投稿する', :style=>"color:white;", class: 'btn btn-warning btn-block' %>
+      <% end %>
+    </div>
+    </aside>
+    <div class="twitter-contents col-sm-5">
+      <%= render 'microposts/microposts', microposts: @microposts %>
+    </div>
+</div>

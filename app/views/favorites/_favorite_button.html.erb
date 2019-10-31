@@ -1,0 +1,24 @@
+<div class="d-inline-block p-2">
+
+<% if current_user.favoriting?(product) %>
+		<%= form_with(model: current_user.favorites.find_by(user_id: current_user.id ),
+		local: true, method: :delete) do |f| %>
+			<%= hidden_field_tag :product_id, product.id %>
+
+				<button class="like-btn-unlike" type = "submit" onfocus="this.blur();">
+					<i class="fa fa-heart"></i>
+				</button>
+				<%= content_tag :span, "#{product.likes_count}", class: "glyphicon glyphicon-heart" %>
+	<% end %>
+	<% else %>
+	 	<%= form_with(model: current_user.favorites.build, local: true) do |f| %>
+			<%= hidden_field_tag :product_id, product.id %>
+
+				<button class="like-btn" type = "submit" onfocus="this.blur();">
+					<i class="fa fa-heart"></i>
+				</button>
+				<%= content_tag :span, "#{product.likes_count}", class: "glyphicon glyphicon-heart-empty" %>
+		<% end %>
+	<% end %>
+	<%= @count_likes %>
+</div>

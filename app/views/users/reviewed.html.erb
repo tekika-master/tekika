@@ -1,0 +1,30 @@
+<% if @reviews.present? %>
+  <% @reviews.each do |review| %>
+    <ul class="well col-md-6">
+      <li class="reviews-user">
+        <p class="text-center">評価者</p>
+        <%= link_to review.user do %>
+        <%= image_tag(@user.image.url, class:'image', width: '100px')%>
+        <% end %>
+        <p class="review-user-name"><%= link_to review.user.name, review.user %></p>
+      </li>
+      <li class="">
+        <p class="review-content-font text-center">内容</p>
+        <div class="review-content">
+          <span class="text-muted"><%= review.created_at.strftime("%Y年%m月%d日") %></span>
+          <p>評価：<%= review.feeling %> </p>
+          <p><%= review.content %></p>
+        </div>
+      </li>
+      <li class="review-product">
+        <p class="text-center">購入商品</p>
+        <%= link_to review.product do %>
+          <div class="reviews-product">
+            <%= image_tag(review.product.image_url, class:'image', width: '100px')%>
+            <p class="review-product-name"><%=  review.product.title %></p>
+          </div>
+        <% end %>
+      </li>
+    </ul>
+  <% end %>
+<% end %>

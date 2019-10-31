@@ -1,0 +1,77 @@
+<header class="mb-4">
+  <nav class="navbar navbar-expand-sm navbar-dark bg-info">
+    <a class="navbar-brand" href="/">Tekika</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+
+          <% if logged_in? %>
+            <li class="search">
+              <%= form_tag(search_path, :method => 'get') do %>
+                <p>
+                  <%= text_field_tag :search, params[:search] , placeholder:"ミクロ経済学"%>
+                  <%= submit_tag "検索", :name => nil %>
+                </p>
+
+              <% end %>
+
+            </li>
+            <li class="nav-item">
+              <%= link_to '掲示板', twitter_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to '過去問', searching_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to '新規出品', form_path, class: 'nav-link' %>
+            </li>
+            <li class="notification">
+              <%= link_to(notifications_path) do %>
+                <% if unchecked_notifications.any? %>
+                  <i class="fa fa-bell notification-circle"></i>
+                  <i class="fas fa-circle"></i>
+                <% else %>
+                  <i class="fa fa-bell notification-circle"></i>
+                <% end %>
+              <% end %>
+            </li>
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                <%= current_user.name %>
+              </a>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li class="dropdown-item">
+                <%= link_to 'マイページ', user_path(current_user) %>
+              </li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item">
+                <%= link_to 'いいね', likes_user_path(current_user) %>
+              </li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item">
+                <%= link_to '購入一覧', evaluates_user_path(current_user)%>
+              </li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item">
+                <%= link_to 'ログアウト', logout_path, method: :delete %>
+              </li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item">
+                <%= link_to '退会', delete_path, method: :delete %>
+              </li>
+            </ul>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to '新規登録', signup_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'ログイン', login_path, class: 'nav-link' %>
+            </li>
+          <% end %>
+      </ul>
+    </div>
+  </nav>
+</header>

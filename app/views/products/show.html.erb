@@ -1,0 +1,60 @@
+<table class="table table-bordered col-sm-4">
+  <thead>
+    <th class="title"><%= @product.title %></th>
+  </thead>
+  <tbody class="details">
+        <tr>
+          <th><%= image_tag(@product.image.to_s, class:'image') %></th>
+        </tr>
+        <tr>
+          <th>講義名： 　<%= @product.lecture %></th>
+        </tr>
+        <tr>
+          <th>学部名：　<%= @product.university %></th>
+        </tr>
+        <tr>
+          <th>受け渡し場所：　<%= @product.place %></th>
+        </tr>
+        <tr>
+          <th>書き込み：　<%= @product.writing %></th>
+        </tr>
+  </tbody>
+</table>
+
+<div class="text-center">
+  <ul class="likes">
+    <% if current_user != @product.user %>
+      <li class="heat"><%= render 'favorites/favorite_button', product: @product %></li>
+    <% else %>
+      <i class="fa fa-heart not-button-heart"></i>
+    <% end %>
+    <li class="heat-count"><%= @product.favorites.count %></li>
+    <li class="price">¥<%= @product.price %></li>
+  </ul>
+</div>
+
+
+<div class="details">
+<% if current_user == @product.user %>
+  <%= link_to '編集', "/products/#{@product.id}/edit", :style=>"color:white;", method: :get , class: 'btn btn-warning'%>
+  <%= link_to "削除", @product, method: :delete, data: { confirm: "本当にこの商品を削除しますか？" }, :style=>"color:white;", class: 'btn btn-warning' %>
+  <% if @currentUserEntry.present? %>
+   <%= link_to '取引画面', rooms_path(product_id: @product.id), :style=>"color:white;", class: 'btn btn-warning'%>
+  <% end %>
+<% else %>
+   <% if @isRoom == true %>
+    <div class="chat"><a href="/rooms/<%= @roomId %>"> 取引画面へ</a></div>
+  <% elsif @product.chosen == true %>
+   <p> 取引中 </p>
+  <% else  @product.chosen == false %>
+    <%= form_for @room do |f| %>
+      <%= hidden_field_tag :product_id, @product.id %>
+        <%= fields_for @entry do |e| %>
+          <%= e.hidden_field :user_id, :value => @user.id %>
+          <%= e.hidden_field :product_id, :value => @product.id %>
+        <% end %>
+          <%= f.submit "購入する" %>
+    <% end %>
+  <% end %>
+<% end %>
+</div>

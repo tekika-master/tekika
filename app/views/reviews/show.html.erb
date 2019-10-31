@@ -1,0 +1,5 @@
+<% review.feeling each do |f| %>
+    <label for="good"><%= f.radio_button :feeling, "good" %><%= image_tag 'star-on.png' %></label>
+    <label for="normal"><%= f.radio_button :feeling, "normal" %><%= image_tag 'star-half.png' %></label>
+    <label for="bad"><%= f.radio_button :feeling, "bad" %><%= image_tag 'star-off.png' %></label>
+<% end %>

@@ -1,0 +1,3 @@
+<li class="nav-item"><a href="<%= likes_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(likes_user_path(@user)) %>">お気に入り  <span class="badge badge-secondary"><%= @count_likes %></span></a></li>
+
+<li class="nav-item"><a href="<%= evaluates_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(evaluates_user_path(@user)) %>">購入した商品  <span class="badge badge-secondary"><%= @count_evaluates %></span></a></li>

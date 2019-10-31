@@ -1,0 +1,19 @@
+<%= search_form_for(@w, url:postsearching_path) do |f| %>
+<ul class="searched">
+    <p>
+      <%= f.label :content, 'キーワード', {class: 'search_name'} %>
+      <%= f.search_field :content_cont %>
+    </p>
+    <p>
+      <%= f.label :info, '検索タグ', {class: 'search_name'}  %>
+      <%= f.radio_button :info_eq, '', {:checked => true} %>指定なし
+      <%= f.radio_button :info_eq, 1 %>楽単
+      <%= f.radio_button :info_eq, 2 %>講義
+      <%= f.radio_button :info_eq, 3 %>試験
+    </p>
+  <p><%= f.submit "検索する" %></p>
+</ul>
+
+
+
+<% end %>

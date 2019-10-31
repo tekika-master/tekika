@@ -1,0 +1,59 @@
+<% if logged_in? %>
+  <%= render 'products/products', products: @products %>
+<% else %>
+
+
+
+<body>
+ <div class="content">
+ </div>
+ <div id="headerwrap">
+    <div class="container ">
+      <div class="row centered">
+        <div class="col-lg-11">
+          <h1>Tekika</h1>
+          <h2>〜大学生のための教科書販売サイト〜</h2>
+          <div class="signup">
+          <%= link_to '新規登録', signup_path, class: 'btn btn-lg btn-primary' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container w">
+    <div class="row centered">
+      <br><br>
+      <div class="col-lg-4">
+        <i class="fas fa-people-carry"></i>
+        <h4>手渡し</h4>
+        <p>発送・入金が面倒くさいと思ってる方、他のフリマアプリでは思ったより送料がかかってしまって利益が出ないと思ってる方はいませんか？</p>
+      　<p>テキカは講義の隙間時間に会い、教科書と現金を指定されたキャンパスで交換するだけ。発送・入金などの面倒な手間は一切ありません。</p>
+      </div>
+
+      <div class="col-lg-4">
+        <i class="fas fa-dollar-sign"></i>
+        <h4>安さ</h4>
+        <p>中間試験で教科書が急遽必要になったけど、金欠で教科書を買うお金が今月ないという経験がある方はいませんか？</p>
+        <p>テキカは定価以下で必要な教科書を購入することができます。</p>
+      </div>
+
+      <div class="col-lg-4">
+        <i class="fas fa-book-reader"></i>
+        <h4>書き込み</h4>
+        <p>講義に出席してないから範囲がわからない、講義中寝てしまっていてメモを取るのを忘れたという方はいませんか？</p>
+        <p>先輩が使用した教科書には中間・期末試験を乗り越えてきた痕跡が残されてます。自分の試験勉強に先輩の知識を＋αしたらさらに勉強効率が高まる可能性も。</p>
+      </div>
+    </div>
+    <br>
+    <br>
+  </div>
+
+ 
+ 
+
+</body>
+</html>
+
+<% end %>
+
