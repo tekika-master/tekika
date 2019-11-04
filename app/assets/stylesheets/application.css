@@ -165,7 +165,7 @@ li{
 .home-price{
   position: absolute;
   left: 8px;
-  bottom: 60px;
+  bottom: 10px;
   width: 70px;
   color: #fff;
   background: 	#444444;
@@ -502,3 +502,34 @@ position: absolute;
 .form-control{
   border-radius: 15px;
 }
+/* productのsoldout用 */
+.product_sold, .product_alive{
+  position: relative;
+}
+
+.product_sold::before{
+  /* 透過した黒を上から重ねるイメージ */
+  background-color: rgba(0,0,0,0.7);
+  /* 自由に位置指定 */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: ' ';
+  border-radius: 15px;
+}
+
+.product_sold p{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  color: white;/*文字は白に*/
+  font-weight: bold; /*太字に*/
+  font-size: 2em;/*サイズ2倍*/
+  font-family :Quicksand, sans-serif;/*Google Font*/
