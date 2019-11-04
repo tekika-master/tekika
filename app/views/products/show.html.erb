@@ -2,10 +2,11 @@
   <thead>
     <th class="title"><%= @product.title %></th>
   </thead>
-  <tbody class="details">
+  <tbody class="text-center">
         <tr>
-          <th><%= image_tag(@product.image.to_s, class:'image') %></th>
+          <th><%= image_tag(@product.image.to_s, class:'image',:size => '180x180') %></th>
         </tr>
+        <!-- <div class="product_detail"> -->
         <tr>
           <th>講義名： 　<%= @product.lecture %></th>
         </tr>
@@ -16,8 +17,9 @@
           <th>受け渡し場所：　<%= @product.place %></th>
         </tr>
         <tr>
-          <th>書き込み：　<%= @product.writing %></th>
+          <th>状態：　<%= @product.writing %></th>
         </tr>
+      <!-- </div> -->
   </tbody>
 </table>
 
@@ -34,7 +36,7 @@
 </div>
 
 
-<div class="details">
+<div class="text-center">
 <% if current_user == @product.user %>
   <%= link_to '編集', "/products/#{@product.id}/edit", :style=>"color:white;", method: :get , class: 'btn btn-warning'%>
   <%= link_to "削除", @product, method: :delete, data: { confirm: "本当にこの商品を削除しますか？" }, :style=>"color:white;", class: 'btn btn-warning' %>

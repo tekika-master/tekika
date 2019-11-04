@@ -2,13 +2,13 @@ class User < ApplicationRecord
 
     mount_uploader :image, ImagesUploader
 
-    validates :name, presence: true, length: {maximum: 50 }
-    validates :email, presence: true, length: {maximum: 255 },
+    validates :name, presence: true, length: {maximum: 10 }
+    validates :email, presence: true, length: {maximum: 30 },
                       format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
                       uniqueness: {case_sensitive: false}
-    has_secure_password
-    has_many :products
 
+has_secure_password
+   has_many :products
    has_many :messages, dependent: :destroy
    has_many :entries, dependent: :destroy
    has_many :rooms, dependent: :destroy

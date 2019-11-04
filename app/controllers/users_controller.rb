@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
-before_action :require_user_logged_in, only: [:index, :show, :exhibition, :likes, :evaluates,]
+before_action :require_user_logged_in, only: [:index, :show, :exhibition,
+   :likes, :evaluates, :tweets, :microposts]
   def index
   end
 
   def show
     @user = User.find(params[:id])
-    @likes = @user.products.page(params[:page])
+    # @likes = @user.products.page(params[:page])
     @microposts = @user.microposts.order(id: :desc).page(params[:page])
     counts(@user)
   end
@@ -65,13 +66,13 @@ before_action :require_user_logged_in, only: [:index, :show, :exhibition, :likes
 
   def likes
     @user = User.find(params[:id])
-    @likes = @user.likes.page(params[:page])
+    @likes = @user.likes.order(id: :desc).page(params[:page])
     counts(@user)
   end
 
   def evaluates
     @user = User.find(params[:id])
-    @evaluates = @user.evaluates.page(params[:page])
+    @evaluates = @user.evaluates.order(id: :desc).page(params[:page])
     counts(@user)
   end
 
@@ -83,9 +84,17 @@ before_action :require_user_logged_in, only: [:index, :show, :exhibition, :likes
 
   def microposts
     @user = User.find(params[:id])
-    @microposts = @user.microposts.page(params[:page])
+    @microposts = @user.microposts.order(id: :desc).page(params[:page])
     counts(@user)
   end
+
+
+  def tweets
+    @user = User.find(params[:id])
+    @microposts = @user.microposts.order(id: :desc).page(params[:page])
+    counts(@user)
+  end
+
 
   def problem
     @user = User.find(params[:id])

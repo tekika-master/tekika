@@ -21,12 +21,24 @@ Rails.application.routes.draw do
 
   get 'problem/:id', to: 'users#problem', as:'problem'
 
-  get 'microposts', to: 'users#microposts', as:'microposts'
+  # get 'microposts/:id', to: 'users#microposts', as:'microposts'
 
-  get 'micropost/:id', to:'users#microposts', as:'micropost'
+  # get 'micropost/:id', to: 'users#microposts', as:'micropost'
+
+   # to: 'microposts#destroy'
+
+  # get 'micropost/:id', to:'users#microposts'
   # post 'micropost/:id', to:'users#microposts', as:'micropost'
 
+  # patch 'microposts/:id', to: 'microposts#destroy'
+
+
+
   get 'twitter', to:'microposts#index'
+
+  get 'microposts/:id', to:'users#tweets', as:'microposts'
+
+  post 'posttweets', to:'microposts#create'
 
   post '/products/:product_id/likes' => "favorites#create"
   delete '/products/:product_id/likes' => "favorites#destroy"

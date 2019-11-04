@@ -32,6 +32,11 @@ class ProductsController < ApplicationController
 
   def index
    @products = Product.search(params[:search])
+   @products = Product.order(id: :desc).page(params[:page]).per(3)
+  end
+
+  def _products
+    @products = Product.order(id: :desc).page(params[:page]).per(3)
   end
 
   def edit

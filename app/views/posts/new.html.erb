@@ -2,14 +2,15 @@
   <div class="col-sm-6 offset-sm-3">
     <%= form_for @post, url:posts_path do |f| %>
 	    <div class="form-group">
-        <%= f.label :image , '過去問画像' %>
+        <%= f.label :image , '過去問画像', {class: 'name'} %>
 
-        <div id="img_field" onClick="$('#file').click()" >
+        <div id="img" onClick="$('#file').click()" >
 
           <% if @post.image? %>
             <%= image_tag @post.image.url, :size => '180x180' %>
           <% else %>
-            <!-- <i class="fas fa-image"></i><i class="fas fa-file-upload add"></i> -->
+            <!-- <i class="fas fa-image"></i> -->
+            <!-- <i class="fas fa-file-upload add"></i> -->
           <% end %>
         </div>
         <%= f.file_field :image, class: "image", style: "display:none;", id: "file"%>
@@ -17,12 +18,12 @@
 
 
       <div class="form-group">
-      <%= f.label :problem, '講義名' %>
+      <%= f.label :problem, '講義名', {class: 'name'} %>
       <%= f.text_area :problem, class:'form-control' %>
       </div>
 
       <div class="form-group">
-      <%= f.label :department, '学部' %>
+      <%= f.label :department, '学部', {class: 'name'} %>
       <%= f.radio_button :department, 1 %>法
       <%= f.radio_button :department, 2 %>経済
       <%= f.radio_button :department, 3 %>商
@@ -33,7 +34,7 @@
       </div>
 
       <div class="form-group">
-      <%= f.label :campus, 'キャンパス' %>
+      <%= f.label :campus, 'キャンパス', {class: 'name'} %>
       <%= f.radio_button :campus, 1 %>日吉
       <%= f.radio_button :campus, 2 %>三田
       <%= f.radio_button :campus, 3 %>矢上

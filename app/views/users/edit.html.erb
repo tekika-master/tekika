@@ -1,45 +1,42 @@
 <div class="row">
   <%= form_with(model: @user, local: true) do |f| %>
 	  <div class="form-group">
-      <%= f.label :image, 'ユーザー画像' %>
-
-      <div id="img_field" onClick="$('#file').click()" >
-
+      <%= f.label :image, 'ユーザー画像', {class: 'name'} %>
+      <div id="img" onClick="$('#file').click()">
         <% if @user.image? %>
           <%= image_tag @user.image.url, :size => '180x180' %>
         <% else %>
-          <!-- <i class="fas fa-image"></i>
-          <i class="fas fa-file-upload add"></i> -->
+          <!-- <i class="fas fa-image"></i> -->
+          <!-- <i class="fas fa-file-upload add"></i> -->
         <% end %>
       </div>
       <%= f.file_field :image, class: "image", style: "display:none;", id: "file"%>
     </div>
-
     <div class="form-group">
-      <%= f.label :name, '名前' %>
+      <%= f.label :name, '名前', {class: 'name'} %>
       <%= f.text_field :name, class: 'form-control' %>
     </div>
 
     <div class="form-group">
-      <%= f.label :email, 'メールアドレス' %>
+      <%= f.label :email, 'メールアドレス', {class: 'name'} %>
       <%= f.email_field :email, class: 'form-control' %>
     </div>
 
     <div class="form-group">
-      <%= f.label :intro, '自己紹介（255文字未満）' %>
+      <%= f.label :intro, '自己紹介（255文字未満）', {class: 'name'} %> %>
       <%= f.text_area :intro, :maxlength => "255", :size => "80x5",  class: 'form-control'  %>
     </div>
     <div class="accbox">
-      <label for="label1">パスワードを変更する方はこちら</label>
+      <b for="label1">パスワードを変更する方はこちら</b>
       <input type="checkbox" id="label1" class="cssacc" />
         <div class="accshow">
           <div class="form-group">
-            新しいパスワード<br>
+            <b>新しいパスワード</b><br>
             <%= f.password_field :password, class: 'form-control' %>
           </div>
 
           <div class="form-group">
-            新しいパスワードを再入力<br>
+            <b>新しいパスワードを再入力</b><br>
             <%= f.password_field :password_confirmation, class: 'form-control' %>
           </div>
         </div>

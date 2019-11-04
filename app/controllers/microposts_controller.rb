@@ -5,14 +5,13 @@ class MicropostsController < ApplicationController
 
 
   def index
-    @w = Micropost.ransack(params[:q])
-    @microposts = @w.result(distinct: true)
-
     if logged_in?
       @micropost = current_user.microposts.build  # form_with 用
-      @microposts = Micropost.all
+      @microposts = current_user.microposts.order(id: :desc).page(params[:page])
     end
 
+    @w = Micropost.ransack(params[:q])
+    @microposts = @w.result(distinct: true)
   end
 
   def show
@@ -30,7 +29,7 @@ class MicropostsController < ApplicationController
     else
       @microposts = current_user.microposts.order(id: :desc).page(params[:page])
       flash.now[:danger] = 'メッセージの投稿に失敗しました。'
-      render 'microposts/index'
+        redirect_back(fallback_location: root_path)
     end
   end
 
@@ -50,7 +49,11 @@ class MicropostsController < ApplicationController
 
   def search
     @products = Micropost.search(params[:search])
+    @microposts = current_user.microposts.order(id: :desc).page(params[:page])
+
   end
+
+
 
   # def set_search
   #      @w = Micropost.ransack(params[:q])
@@ -59,7 +62,7 @@ class MicropostsController < ApplicationController
   private
 
   def micropost_params
-    params.require(:micropost).permit(:content, :easy, :info, :exam, :other)
+    params.require(:micropost).permit(:content, :info)
   end
 
   # def search_params

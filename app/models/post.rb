@@ -1,5 +1,11 @@
 class Post < ApplicationRecord
 
+  validates :image, presence: true
+  validates :problem, presence: true, length: {maximum: 10 }
+  validates :department, presence: true
+  validates :campus, presence: true
+
+
   mount_uploader :image, ImagesUploader
 
   belongs_to :user

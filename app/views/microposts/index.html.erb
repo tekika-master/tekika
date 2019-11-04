@@ -5,12 +5,12 @@
          <%= render 'microposts/search_form' %>
       </div>
       <div class="twitter-post">
-      <%= form_with(model: @micropost, local: true) do |f| %>
+      <%= form_for(@micropost, url: posttweets_path) do |f| %>
         <div class="form-group">
           <%= f.text_area :content, class: 'form-control', rows: 5 %>
         </div>
         <div class="form-group">
-          <%= f.label :info, 'タグ'  %>
+          <%= f.label :info, 'タグ', {class: 'search_name'}  %>
           <%= f.radio_button :info, '', {:checked => true} %>指定なし
           <%= f.radio_button :info, 1 %>楽単
           <%= f.radio_button :info, 2 %>講義
