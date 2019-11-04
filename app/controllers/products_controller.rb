@@ -88,6 +88,8 @@ class ProductsController < ApplicationController
             @isRoom = false
             @room = Room.new
             @entry = Entry.new
+          elsif @product.reviews.present?
+            @isRoom = false
           else
             @currentUserEntry.each do |cu|
               @userEntry.each do |u|
@@ -96,10 +98,10 @@ class ProductsController < ApplicationController
               end
             end
           end
-      else
-       @currentUserEntry=Entry.where(user_id: current_user.id, product_id: @product.id )
-      end
-   end
+        else
+         @currentUserEntry=Entry.where(user_id: current_user.id, product_id: @product.id )
+        end
+
   end
 
   def search
@@ -130,3 +132,5 @@ class ProductsController < ApplicationController
         errors.add(:picture, "should be less than 5MB")
       end
   end
+
+end

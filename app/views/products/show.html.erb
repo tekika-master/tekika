@@ -44,10 +44,12 @@
    <%= link_to '取引画面', rooms_path(product_id: @product.id), :style=>"color:white;", class: 'btn btn-warning'%>
   <% end %>
 <% else %>
-   <% if @isRoom == true %>
+   <% if @isRoom == true && @product.chosen == true %>
     <div class="chat"><a href="/rooms/<%= @roomId %>"> 取引画面へ</a></div>
-  <% elsif @product.chosen == true %>
-   <p> 取引中 </p>
+  <% elsif @isRoom == false && @product.chosen == true && @product.reviews.present? %>
+      <p> 購入済 </p>
+  <% elsif @isRoom == false && @product.chosen == true && @product.reviews.blank?%>
+      <p> 取引中 </p>
   <% else  @product.chosen == false %>
     <%= form_for @room do |f| %>
       <%= hidden_field_tag :product_id, @product.id %>
