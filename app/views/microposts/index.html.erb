@@ -10,7 +10,7 @@
           <%= f.text_area :content, class: 'form-control', rows: 5 %>
         </div>
         <div class="form-group">
-          <%= f.label :info, 'タグ', {class: 'search_name'}  %>
+          <%= f.label :info, 'タグ', {class: 'search_tag'}  %>
           <%= f.radio_button :info, '', {:checked => true} %>指定なし
           <%= f.radio_button :info, 1 %>楽単
           <%= f.radio_button :info, 2 %>講義
@@ -20,7 +20,7 @@
       <% end %>
     </div>
     </aside>
-    <div class="twitter-contents col-sm-5">
+    <div class="twitter-contents col-sm-7">
       <%= render 'microposts/microposts', microposts: @microposts %>
     </div>
 </div>

@@ -2,10 +2,10 @@
 <ul class="searched">
   <p>
     <%= f.label :problem, '講義名', {class: 'search_name'} %>
-    <%= f.search_field :problem_cont %>
+    <%= f.search_field :problem_cont, placeholder:" ミクロ経済学", class:'search_field' %>
   </p>
   <p>
-    <%= f.label :department, '学部', {class: 'search_name'}  %>
+    <%= f.label :department, '学部', {class: 'search_tag'}  %>
     <%= f.radio_button :department_eq, '', {:checked => true} %>指定なし
     <%= f.radio_button :department_eq, 1 %>法
     <%= f.radio_button :department_eq, 2 %>経済
@@ -16,7 +16,7 @@
     <%= f.radio_button :department_eq, 7 %>その他
   </p>
   <p>
-    <%= f.label :campus, 'キャンパス', {class: 'search_name'} %>
+    <%= f.label :campus, 'キャンパス', {class: 'search_tag'} %>
     <%= f.radio_button :campus_eq, '', {:checked => true} %>指定なし
     <%= f.radio_button :campus_eq, 1 %>日吉
     <%= f.radio_button :campus_eq, 2 %>三田
@@ -24,7 +24,7 @@
     <%= f.radio_button :campus_eq, 4 %>湘南藤沢
     <%= f.radio_button :campus_eq, 5 %>その他
   </p>
-  <p><%= f.submit "検索する" %></p>
+  <p><%= f.submit "検索する", class:'search_search' %></p>
 </ul>
 
 

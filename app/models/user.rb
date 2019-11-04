@@ -2,7 +2,7 @@ class User < ApplicationRecord
 
     mount_uploader :image, ImagesUploader
 
-    validates :name, presence: true, length: {maximum: 10 }
+    validates :name, presence: true, length: {maximum: 7 }
     validates :email, presence: true, length: {maximum: 30 },
                       format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
                       uniqueness: {case_sensitive: false}

@@ -2,16 +2,16 @@
 <ul class="searched">
     <p>
       <%= f.label :content, 'キーワード', {class: 'search_name'} %>
-      <%= f.search_field :content_cont %>
+      <%= f.search_field :content_cont, placeholder:" ミクロ経済学", class:'search_field'%>
     </p>
     <p>
-      <%= f.label :info, '検索タグ', {class: 'search_name'}  %>
+      <%= f.label :info, '検索タグ', {class: 'search_tag'}  %>
       <%= f.radio_button :info_eq, '', {:checked => true} %>指定なし
       <%= f.radio_button :info_eq, 1 %>楽単
       <%= f.radio_button :info_eq, 2 %>講義
       <%= f.radio_button :info_eq, 3 %>試験
     </p>
-  <p><%= f.submit "検索する" %></p>
+  <p><%= f.submit "検索する", class:'search_search' %></p>
 </ul>
 
 

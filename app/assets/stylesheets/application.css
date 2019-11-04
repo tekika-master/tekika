@@ -266,7 +266,8 @@ li{
 }
 
 .stars{
-  background-color: #DDDDDD	;
+  background-color:#FFFFBB;
+  /* border: solid; */
   /* width: 300px;
   margin-left: 100px;
   left: 40px;
@@ -282,20 +283,21 @@ li{
 }
 
 .stars h1{
-  background-color: #999999;
+  /* background-color: #FFFFAA; */
   display: inline-block;
-  margin-top: 10px;
+  margin-top: 30px;
   margin-left: 50px;
   padding-left: 10px;
   padding-right: 7px;
   border-radius: 15px 15px 15px 15px;
-  color:white;
+  color: #777777;
+  font-size: 30px;
 
 }
 
 
 .well{
-  background-color:#DDDDDD;
+  background-color:#FFFFBB;
   display: flex;
   justify-content: center;
   margin: 10px auto;
@@ -427,15 +429,19 @@ li{
 
 .microposts-line{
   border: 1px solid #ccc;
+  position: relative;
 }
 
 .twitter-user{
-padding: 15px 15px 2px 5px ;
+  padding: 5px 0 2px 5px ;
+position: absolute;
+
 }
 
 .twitter-body {
     margin-top:10px;
     padding-right: 10px;
+    margin-left: 100px;
 }
 
 .twitter-body p{
@@ -456,4 +462,43 @@ padding: 15px 15px 2px 5px ;
 .name{
   font-size: 15px;
   font-weight: bold;
+}
+
+.navbar_search_field{
+  border-radius: 10px;
+  border:none;
+  width:200px;
+  height:30px;
+}
+
+.navbar_search_search{
+  border-radius: 5px;
+}
+
+.search_field{
+  border-radius: 10px;
+  margin-left: 10px;
+}
+
+.search_search{
+  border-radius: 5px;
+}
+
+.search_tag{
+  padding-right: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.post_search_tag{
+  font-size: 15px;
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.micropost_delete{
+  margin-bottom: 7px;
+}
+
+.form-control{
+  border-radius: 15px;
 }
