@@ -509,7 +509,7 @@ position: absolute;
 
 .product_sold::before{
   /* 透過した黒を上から重ねるイメージ */
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(255,0,0,0.6);
   /* 自由に位置指定 */
   position: absolute;
   top: 0;
