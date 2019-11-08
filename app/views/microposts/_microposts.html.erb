@@ -1,4 +1,4 @@
-<ul class="list-unstyled">
+<ul class=" microposts list-unstyled">
     <% microposts.each do |micropost| %>
       <div class="microposts-line">
         <!-- <li class="media mb-3"> -->
@@ -28,6 +28,5 @@
         <!-- </li> -->
       </div>
     <% end %>
-    <%= paginate microposts %>
-
+    <%= paginate @microposts %>
 </ul>

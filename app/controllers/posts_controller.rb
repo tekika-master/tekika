@@ -3,11 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @q = Post.ransack(params[:q])
-    # @campus = Campus.all
-    # @departments = Department.all
-    @posts = @q.result(distinct: true)
-
-
+      @posts = @q.result.order(id: :desc).page(params[:page]).per(20)
   end
 
   def show

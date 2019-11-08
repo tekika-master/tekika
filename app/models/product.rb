@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
 
+
   validates :image, presence: true
   validates :title, presence: true, length: {maximum: 20 }
   validates :price, presence: true, length: {maximum: 6 }
@@ -19,14 +20,14 @@ class Product < ApplicationRecord
 
   has_many :notifications, dependent: :destroy
 
-  def create_notification_favorite!(current_user)
+  def create_notification_by(current_user)
       # すでに「いいね」されているか検索
       temp = Notification.where(["visitor_id = ? and visited_id = ? and product_id = ? and action = ? ", current_user.id, user_id, id, 'favorite'])
       # いいねされていない場合のみ、通知レコードを作成
       if temp.blank?
         notification = current_user.active_notifications.new(
-          product_id: id,
-          visited_id: user_id,
+          product_id:self.id,
+          visited_id:user_id,
           action: 'favorite'
         )
         # 自分の投稿に対するいいねの場合は、通知済みとする
@@ -37,8 +38,18 @@ class Product < ApplicationRecord
       end
     end
 
-  def self.search(search)
-    return Product.all unless search
-    Product.where(['lecture LIKE ?', "%#{search}%"])
-  end
+    def self.search(search)
+     return Product.all unless search
+     Product.where(['lecture LIKE ?', "%#{search}%"])
+   end
+
+
+
+  # def self.search(search) #self.でクラスメソッドとしている
+  #     if search # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
+  #       Product.where(['lecture LIKE ?', "%#{search}%"])
+  #     else
+  #       Product.all #全て表示。
+  #     end
+  #   end
 end

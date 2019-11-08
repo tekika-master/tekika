@@ -532,4 +532,29 @@ position: absolute;
   color: white;/*文字は白に*/
   font-weight: bold; /*太字に*/
   font-size: 2em;/*サイズ2倍*/
-  font-family :Quicksand, sans-serif;/*Google Font*/
+font-family :Quicksand, sans-serif;/*Google Font*/
+}
+
+.microposts ul {
+  position: absolute;
+ padding-top: 60px;
+ margin-bottom: 50px;
+ left: 50%;
+ transform: translate(-50%, -50%);
+}
+
+.posts ul{
+  position: absolute;
+ padding-top: 520px;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ margin-bottom: 50px;
+}
+
+.products ul{
+  position: absolute;
+ padding-top: 560px;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ margin-bottom: 50px;
+}

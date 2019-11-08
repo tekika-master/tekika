@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_29_140952) do
+ActiveRecord::Schema.define(version: 2019_11_08_081154) do
 
   create_table "entries", force: :cascade do |t|
     t.integer "user_id"
@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(version: 2019_10_29_140952) do
 
   create_table "notifications", force: :cascade do |t|
     t.integer "visited_id"
-    t.integer "like_id"
     t.integer "purchase_id"
     t.integer "comment_id"
     t.integer "review_id"
@@ -66,6 +65,7 @@ ActiveRecord::Schema.define(version: 2019_10_29_140952) do
     t.datetime "updated_at", null: false
     t.string "visitor_id"
     t.integer "product_id"
+    t.integer "favorite_id"
   end
 
   create_table "posts", force: :cascade do |t|

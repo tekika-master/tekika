@@ -7,7 +7,7 @@ before_action :require_user_logged_in, only: [:index, :show, :exhibition,
   def show
     @user = User.find(params[:id])
     # @likes = @user.products.page(params[:page])
-    @microposts = @user.microposts.order(id: :desc).page(params[:page])
+    @microposts = current_user.microposts.order(id: :desc).page(params[:page]).per(15)
     counts(@user)
   end
 

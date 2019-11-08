@@ -9,16 +9,16 @@
       <ul class="navbar-nav">
 
           <% if logged_in? %>
-            <li class="search">
-              <%= form_tag(search_path, :method => 'get') do %>
-                <p>
-                  <%= text_field_tag :search, params[:search] , placeholder:"  ミクロ経済学", class:'navbar_search_field'%>
-                  <%= submit_tag "検索", :name => nil, class:'navbar_search_search' %>
-                </p>
+          <li class="search">
+            <%= form_tag(search_path, :method => 'get') do %>
+              <p>
+                <%= text_field_tag :search, params[:search] , placeholder:"  ミクロ経済学", class:'navbar_search_field'%>
+                <%= submit_tag "検索", :name => nil, class:'navbar_search_search' %>
+              </p>
 
-              <% end %>
+            <% end %>
 
-            </li>
+          </li>
             <li class="nav-item">
               <%= link_to '掲示板', twitter_path, class: 'nav-link' %>
             </li>

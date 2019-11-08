@@ -5,13 +5,9 @@ class MicropostsController < ApplicationController
 
 
   def index
-    if logged_in?
-      @micropost = current_user.microposts.build  # form_with 用
-      @microposts = current_user.microposts.order(id: :desc).page(params[:page])
-    end
-
-    @w = Micropost.ransack(params[:q])
-    @microposts = @w.result(distinct: true)
+    @q = Micropost.ransack(params[:q])
+      @microposts = @q.result.order(id: :desc).page(params[:page]).per(15)
+    @micropost = current_user.microposts.build  # form_with 用
   end
 
   def show

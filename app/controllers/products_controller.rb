@@ -19,25 +19,18 @@ class ProductsController < ApplicationController
     @review.save
   end
 
-# @product.review = params[:review_id]
-  # @room = Room.new
-  # @room.user_id = current_user.id
-  # @room.product_id = params[:product_id]
-  # @room.save
-  # @product = Product.find(params[:product_id])
-  # @product.chosen = true
-  #   if @product.save
-  #     flash[:success] = '商品を購入しました。'
-  #   end
+  # def index
+  #   @q = Product.ransack(params[:q])
+  #     @products = @q.result.order(id: :desc).page(params[:page]).per(20)
+  #
+  #
+  # end
 
   def index
-   @products = Product.search(params[:search])
-   @products = Product.order(id: :desc).page(params[:page]).per(3)
+    @products = Product.search(params[:search])
+    @products = Product.order(id: :desc).page(params[:page]).per(2)
   end
 
-  def _products
-    @products = Product.order(id: :desc).page(params[:page]).per(3)
-  end
 
   def edit
      @product = Product.find(params[:id])
