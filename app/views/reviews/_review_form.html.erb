@@ -1,14 +1,14 @@
 <%= form_for (@review) do |f| %>
 <%= hidden_field_tag :product_id, product.id %>
 
-<div class="stars text-center">
+<div class="stars text-center col-md-4">
   <h1>評価</h1>
-  <ul class="star">
+  <ul class="star pl-0">
     <li>😊</li>
     <li>🙂</li>
     <li>😨</li>
   </ul>
-  <ul class="star-number">
+  <ul class="star-number pl-0">
     <label for="good"><%= f.radio_button :feeling, "good" %></label>
     <label for="normal"><%= f.radio_button :feeling, "normal" %></label>
     <label for="bad"><%= f.radio_button :feeling, "bad" %></label>

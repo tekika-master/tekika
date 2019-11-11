@@ -1,5 +1,5 @@
 <%= search_form_for(@q, url:searching_path) do |f| %>
-<ul class="searched">
+<ul class="searched pl-2">
   <p>
     <%= f.label :problem, '講義名', {class: 'search_name'} %>
     <%= f.search_field :problem_cont, placeholder:" ミクロ経済学", class:'search_field' %>

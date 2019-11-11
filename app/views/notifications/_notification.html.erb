@@ -5,7 +5,7 @@
 
 <div class="user-view clearfix ">
   <%= link_to user_path(notification.visitor) do %>
-    <%=  image_tag notification.visitor.image.to_s, class:"user-thumb", style:"width: 60px;"%>
+    <%=  image_tag notification.visitor.image.to_s, class:"user-image", style:"width: 60px;"%>
     <%= visitor.name %>
   <% end %>
     <%= "さんが"%>

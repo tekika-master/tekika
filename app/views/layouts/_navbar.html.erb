@@ -7,7 +7,6 @@
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
-
           <% if logged_in? %>
           <li class="search">
             <%= form_tag(search_path, :method => 'get') do %>
@@ -15,9 +14,17 @@
                 <%= text_field_tag :search, params[:search] , placeholder:"  ミクロ経済学", class:'navbar_search_field'%>
                 <%= submit_tag "検索", :name => nil, class:'navbar_search_search' %>
               </p>
-
             <% end %>
-
+          </li>
+          <li class="notification">
+            <%= link_to(notifications_path) do %>
+              <% if unchecked_notifications.any? %>
+                <i class="fa fa-bell notification-circle"></i>
+                <i class="fas fa-circle"></i>
+              <% else %>
+                <i class="fa fa-bell notification-circle"></i>
+              <% end %>
+            <% end %>
           </li>
             <li class="nav-item">
               <%= link_to '掲示板', twitter_path, class: 'nav-link' %>
@@ -27,16 +34,6 @@
             </li>
             <li class="nav-item">
               <%= link_to '新規出品', form_path, class: 'nav-link' %>
-            </li>
-            <li class="notification">
-              <%= link_to(notifications_path) do %>
-                <% if unchecked_notifications.any? %>
-                  <i class="fa fa-bell notification-circle"></i>
-                  <i class="fas fa-circle"></i>
-                <% else %>
-                  <i class="fa fa-bell notification-circle"></i>
-                <% end %>
-              <% end %>
             </li>
             <li class="nav-item dropdown">
               <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
@@ -48,11 +45,7 @@
               </li>
               <li class="dropdown-divider"></li>
               <li class="dropdown-item">
-                <%= link_to 'いいね', likes_user_path(current_user) %>
-              </li>
-              <li class="dropdown-divider"></li>
-              <li class="dropdown-item">
-                <%= link_to '購入一覧', evaluates_user_path(current_user)%>
+                <%= link_to 'ツイート・過去問', microposts_path(current_user) %>
               </li>
               <li class="dropdown-divider"></li>
               <li class="dropdown-item">

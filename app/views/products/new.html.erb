@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row m-2">
   <div class="col-sm-6 offset-sm-3">
     <%= form_for @product, url:products_path do |f| %>
       <div class="form-group">
@@ -43,7 +43,7 @@
       <%= f.text_area :writing, class:'form-control' , rows: 5 %>
       </div>
 
-      <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
+      <%= f.submit 'Post', class: 'btn btn-primary btn-block mb-5' %>
 
     <% end %>
   </div>

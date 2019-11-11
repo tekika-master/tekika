@@ -40,7 +40,9 @@ li{
 }
 
 .elements-font{
-  margin: 30px 150px 0 150px;
+  text-align: center;
+  margin-left: 30%;
+  width:40%;
   background-color: #AA0000	;
   border-radius: 30px 30px 30px 30px;
   padding-top: 6px;
@@ -184,6 +186,7 @@ li{
   padding-bottom: 30px;
 }
 
+
  #img {
   /* font-size: 15px; */
   margin-top: 10px;
@@ -236,27 +239,13 @@ li{
 
 
 
-.star li{
-  display: inline-block;
-  width:80px;
-  padding-top:40px;
-  /* padding-left: 20px; */
-
-}
-
-.star-number label{
-  display: inline-block;
-  width: 81px;
-  padding-right: 1px;
-  padding-bottom: 60px;
-}
+/* ユーザーの評価欄 */
 
 .user-star li{
   display: inline-block;
   width:80px;
   padding-top:40px;
-  padding-left: 30px;
-  /* padding-left: 20px; */
+  padding-left: 28px;
 
 }
 .star-number li{
@@ -265,81 +254,130 @@ li{
   padding-left: 33px;
 }
 
-.stars{
-  background-color:#FFFFBB;
-  /* border: solid; */
-  /* width: 300px;
-  margin-left: 100px;
-  left: 40px;
-  margin-bottom:50px; */
-  /* width:330px; */
-  display: block;
-  padding-right: 40px;
-  width: 400px;
-  margin: 0 auto;
-  border-radius: 15px 15px 15px 15px;
 
+/* 評価するときのデザイン */
+.star li{
+  display: inline-block;
+  padding-top:40px;
+  padding-left: 30px;
+  padding-right: 30px;
 
 }
 
+.star-number label{
+  padding-left: 34px;
+  padding-right: 34px;
+}
+.stars{
+    margin: 2em auto;
+    padding: 1em;
+    width: 90%;
+    background-color: #fff; /* 背景色 */
+    border: 1px solid 	#DDDDDD; /* 枠線 */
+    border-radius: 15px;
+    /* background-color:#FFFFBB; */
+    /* border: solid; */
+    /* width: 300px;
+    margin-left: 100px;
+    left: 40px;
+    margin-bottom:50px; */
+    /* width:330px; */
+    /* display: block;
+    padding-right: 40px;
+    width: 400px;
+    margin: 0 auto;
+    border-radius: 15px 15px 15px 15px; */
+
+
+  }
+
+
+
+
 .stars h1{
+  font-size: 20px;
+  font-weight: bold;
   /* background-color: #FFFFAA; */
-  display: inline-block;
+  /* display: inline-block;
   margin-top: 30px;
   margin-left: 50px;
   padding-left: 10px;
   padding-right: 7px;
-  border-radius: 15px 15px 15px 15px;
+  border-radius: 15px 15px 15px 15px; */
   color: #777777;
-  font-size: 30px;
-
 }
 
 
 .well{
   background-color:#FFFFBB;
-  display: flex;
-  justify-content: center;
-  margin: 10px auto;
+  /* width:80%; */
+  /* margin: 5%  10%; */
   border-radius: 15px;
+  position: relative;
+  margin-bottom: 20px;
+  margin-left: 1px;
+  width: 100%;
+
 }
 
-.reviews-user{
-    /* padding-right: 10px;
-    padding-top: 20px; */
-    margin-top: 30px;
-    padding-right: 10px;
-    margin-left: 0;
+
+.reviews-user-all{
+top: 100px;
 }
+
+.review-user-font{
+display: inline-block;
+
+}
+
+/* .review-user-image{
+} */
 
 .review-user-name{
-  padding-top: 10px;
-  text-align: center;
+  display: inline-block;
+}
+
+
+.review-content-all{
+display: inline-block;
+
 
 }
 
- .review-content{
-  background-color: white;
-  margin-top: 10px;
-  margin-right: 20px;
-  margin-left: 20px;
-  border-radius: 10px;
-  padding: 5px;
-  width:200px;
+.review-content-font{
+
+}
+
+.review-content{
+background-color: white;
+padding: 7px 60px 7px 10px;
+display: inline-block;
+margin-right: 40px;
+border-radius: 15px;
  }
 
- .review-content-font{
-   margin-top: 30px;
- }
 
- .review-product{
-   margin-top: 30px;
- }
 
+
+.review-product-all{
+display: inline-block;
+padding-top: 7px;
+}
+
+ .review-product-font{
+padding-left: 5px;
+
+}
+
+ .review-product-image{
+border-radius: 20px;
+ }
  .review-product-name{
-   padding-top: 10px;
-   text-align: center;
+text-align: center;
  }
+
+
+
 
 .image{
   border-radius: 15px;
@@ -365,16 +403,23 @@ li{
 
 .post{
   display: inline-block;
+  padding-right: 80px;
+}
+
+.cancel{
+  display: inline-block;
+}
+
+.recieve{
+  padding-top: 100px;
+  padding-left: 90px;
 }
 
 .posts-post{
   padding-bottom: 30px;
 }
 
-.recieve{
-  display: inline-block;
-  padding-left: 120px;
-}
+
 
 .post_search{
   display: inline-block;
@@ -535,9 +580,76 @@ position: absolute;
 font-family :Quicksand, sans-serif;/*Google Font*/
 }
 
+.product_trading, .product_alive{
+  position: relative;
+}
+
+.product_trading::before{
+  /* 透過した黒を上から重ねるイメージ */
+  background-color: rgba(30,30,30,0.6);
+  /* 自由に位置指定 */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: ' ';
+  border-radius: 15px;
+}
+
+.product_trading p{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  color: white;/*文字は白に*/
+  font-weight: bold; /*太字に*/
+  font-size: 1.5em;/*サイズ2倍*/
+font-family :Quicksand, sans-serif;/*Google Font*/
+}
+
+
+.my_product_sold, .my_product_alive{
+  position: relative;
+}
+
+
+.my_product_sold::before{
+  /* 透過した黒を上から重ねるイメージ */
+  background-color: rgba(255,0,0,0.6);
+  /* 自由に位置指定 */
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: ' ';
+  border-radius: 15px;
+}
+
+.my_product_sold p{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  color: white;/*文字は白に*/
+  font-weight: bold; /*太字に*/
+  font-size: 2em;/*サイズ2倍*/
+font-family :Quicksand, sans-serif;/*Google Font*/
+}
+
 .microposts ul {
   position: absolute;
- padding-top: 60px;
+ padding-top: 80px;
  margin-bottom: 50px;
  left: 50%;
  transform: translate(-50%, -50%);
@@ -545,7 +657,7 @@ font-family :Quicksand, sans-serif;/*Google Font*/
 
 .posts ul{
   position: absolute;
- padding-top: 520px;
+ padding-top: 540px;
  left: 50%;
  transform: translate(-50%, -50%);
  margin-bottom: 50px;
