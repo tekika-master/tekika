@@ -72,3 +72,5 @@ gem 'ratyrate'
 gem 'jquery-rails'
 
 gem 'kaminari'
+
+gem 'rails-i18n'

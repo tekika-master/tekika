@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   delete 'delete', to: 'users#destroy'
 
+  delete 'leave', to: 'admin/users#destroy'
+
   get 'form', to: 'products#new', as:'form'
 
   get 'products/:id', to: 'products#show'
@@ -67,6 +69,8 @@ Rails.application.routes.draw do
 
   get 'bad', to: 'users#bad'
 
+  get 'leave', to: 'admin/users#index'
+
 
   resources :messages, only: [:create]
   resources :rooms, only: [:create, :show, :index ,:new, :star]
@@ -103,5 +107,10 @@ Rails.application.routes.draw do
   resources :reviews, only: [:new, :show, :create, :update]
 
   resources :microposts, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+
+  namespace :admin do
+   resources :users, only: [:index, :destroy]
+ end
+
 
 end

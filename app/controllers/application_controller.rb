@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
 		@count_evaluates = user.evaluates.count
 		@count_problems = user.posts.count
 		@count_microposts = user.microposts.count
+
 	end
 
 	protect_from_forgery with: :exception

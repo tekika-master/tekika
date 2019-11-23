@@ -4,6 +4,7 @@ before_action :correct_user, only: [:destroy]
   def index
     @q = Post.ransack(params[:q])
       @posts = @q.result.order(id: :desc).page(params[:page]).per(20)
+      counts(@user)
   end
 
   def show

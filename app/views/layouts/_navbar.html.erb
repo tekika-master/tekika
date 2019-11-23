@@ -9,6 +9,7 @@ Tekika</a>
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
           <% if logged_in? %>
+          <div>
           <li class="search">
             <%= form_tag(search_path, :method => 'get') do %>
               <p>
@@ -16,27 +17,34 @@ Tekika</a>
                 <%= submit_tag "検索", :name => nil, class:'navbar_search_search' %>
               </p>
             <% end %>
-          </li>
-          <li class="notification pr-4 pl-2">
-            <%= link_to(notifications_path) do %>
-              <% if unchecked_notifications.any? %>
-                <i class="fa fa-bell notification-circle"></i>
-                <i class="fas fa-circle"></i>
-              <% else %>
-                <i class="fa fa-bell notification-circle"></i>
+            </li>
+            <li class="notification pr-4 pl-2">
+              <%= link_to(notifications_path) do %>
+                <% if unchecked_notifications.any? %>
+                  <i class="fa fa-bell notification-circle"></i>
+                  <i class="fas fa-circle"></i>
+                <% else %>
+                  <i class="fa fa-bell notification-circle"></i>
+                <% end %>
               <% end %>
-            <% end %>
-          </li>
-            <li class="nav-item">
+            </li>
+          </div>
+
+            <li class="nav-item ">
               <%= link_to '掲示板', twitter_path, class: 'nav-link' %>
             </li>
-            <li class="nav-item">
+            <li class="nav-item ">
               <%= link_to '過去問', searching_path, class: 'nav-link' %>
             </li>
-            <li class="nav-item">
+            <li class="nav-item ">
               <%= link_to '新規出品', form_path, class: 'nav-link' %>
             </li>
-            <li class="nav-item dropdown">
+              <% if current_user.admin? %>
+                <li class="nav-item ">
+                  <%= link_to '強制退会', leave_path, class: 'nav-link' %>
+                </li>
+              <% end %>
+            <li class="nav-item dropdown ">
               <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                 <%= current_user.name %>
               </a>

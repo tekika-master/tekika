@@ -17,11 +17,12 @@
 
 .search{
    padding-top: 7px;
+   display:inline-block;
 
 }
 
 .notification{
-
+display:inline-block;
 }
 
 li{

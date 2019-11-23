@@ -1,4 +1,13 @@
 ja:
+  activerecord:
+    models:
+        user: ユーザー
+    attributes:
+        user:
+          name: "名前"
+          password: "パスワード"
+          email: "Eメール"
+
   views:
     pagination:
       first: <i class="fas fa-angle-double-left"></i>
