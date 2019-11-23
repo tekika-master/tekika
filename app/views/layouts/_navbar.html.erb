@@ -1,6 +1,7 @@
 <header class="mb-4">
   <nav class="navbar navbar-expand-sm navbar-dark bg-info">
-    <a class="navbar-brand" href="/">Tekika</a>
+    <a class="navbar-brand" href="/"><%= image_tag "/assets/Tekika.png",class:'mb-1', :size => '25x25' %>
+Tekika</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -16,7 +17,7 @@
               </p>
             <% end %>
           </li>
-          <li class="notification">
+          <li class="notification pr-4 pl-2">
             <%= link_to(notifications_path) do %>
               <% if unchecked_notifications.any? %>
                 <i class="fa fa-bell notification-circle"></i>
@@ -53,7 +54,7 @@
               </li>
               <li class="dropdown-divider"></li>
               <li class="dropdown-item">
-                <%= link_to '退会', delete_path, method: :delete %>
+                <%= link_to '退会', delete_path, method: :delete, data:{ confirm:"全てのデータが削除されます。本当に退会しますか？"} %>
               </li>
             </ul>
           <% else %>

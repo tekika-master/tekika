@@ -61,6 +61,13 @@ Rails.application.routes.draw do
 
   patch 'cancel', to: 'products#cancel', as:'cancel'
 
+  get 'good', to: 'users#good', as:'good'
+
+  get 'normal', to: 'users#normal'
+
+  get 'bad', to: 'users#bad'
+
+
   resources :messages, only: [:create]
   resources :rooms, only: [:create, :show, :index ,:new, :star]
 
@@ -82,8 +89,14 @@ Rails.application.routes.draw do
       get :likes
       get :evaluates
       get :microposts
+      # get :good
     end
   end
+
+  # scope "(:locale)" do
+	# resources :notifications
+  # resources :paginate
+  # end
 
   resources :favorites, only: [:create, :destroy]
 

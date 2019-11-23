@@ -9,3 +9,22 @@
       <%= f.submit "検索", class:'navbar_search_search' %>
     </p>
 <% end %>
+
+<a class="text-center text-md-left pr-5 pb-5">© 2019 Tekika. All Rights Reserved</a>
+<a rel="nofollow" target="_blank" id="footer-link-twitter" href="https://twitter.com/Tekika_keio">
+  <i class="fab fa-twitter white-text"> </i>
+</a>
+
+
+<%= f.select :department_e, '学部', ['1','法学部', '2','経済学部', '3','商学部', '4','文学部', '5','理工学部', '6','SFC', '7','その他'] ,{include_blank: '選択してください' }  %>
+
+
+<%= f.label :department, '学部', {class: 'search_tag'}  %>
+<%= f.radio_button :department_eq, '', {:checked => true} %>指定なし
+<%= f.radio_button :department_eq, 1 %>法
+<%= f.radio_button :department_eq, 2 %>経済
+<%= f.radio_button :department_eq, 3 %>商
+<%= f.radio_button :department_eq, 4 %>文
+<%= f.radio_button :department_eq, 5 %>理
+<%= f.radio_button :department_eq, 6 %>SFC
+<%= f.radio_button :department_eq, 7 %>その他

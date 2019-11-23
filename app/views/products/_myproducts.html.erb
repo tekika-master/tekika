@@ -2,9 +2,9 @@
 	<% products.each do |product| %>
 	<div class="col-md-3 text-center">
       <div id="item-list">
-      	<div class="product">
+				<div class="product">
 					<% if product.chosen == true && product.reviews.present? %>
-					<div class="my_product_sold">
+					<div class="product_sold">
             <%= render 'products/review', review: @review %>
 
 						<%= image_tag(product.image.to_s, class:'image',:size => '160x160') %>
@@ -14,8 +14,19 @@
 							¥<%= product.price %>
 						</li>
 					</div>
-					<% else product.chosen == true && product.reviews.blank? %>
-        	<div class="my_product_alive">
+					<% elsif product.chosen == true && product.reviews.blank?%>
+					<div class="product_trading">
+            <%= render 'products/review', review: @review %>
+
+						<%= image_tag(product.image.to_s, class:'image',:size => '160x160') %>
+						<p> 取引中 </p>
+
+						<li class="home-price">
+							¥<%= product.price %>
+						</li>
+					</div>
+					<% else  product.chosen == false %>
+        	<div class="product_alive">
             <%= render 'products/review', review: @review %>
 
 						<%= image_tag(product.image.to_s, class:'image',:size => '160x160') %>

@@ -35,5 +35,10 @@ module Tekika
     config.assets.paths << Rails.root.join('public')
     config.assets.precompile << %w( cancel-off.png cencel-on.png star-off.png star-on.png star-half.png)
 
+    # Settings in config/environments/* take precedence over those specified here.
+    # Application configuration should go into files in config/initializers
+    # -- all .rb files in that directory are automatically loaded.
+    config.i18n.default_locale = :ja #追加
+
   end
 end

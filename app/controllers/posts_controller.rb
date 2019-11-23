@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-
+before_action :correct_user, only: [:destroy]
 
   def index
     @q = Post.ransack(params[:q])
@@ -50,11 +50,18 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:problem, :campus, :department, :image)
+    params.require(:post).permit(:problem, :campus, :department, :image, :year)
   end
 
   def search_params
     params.require(:q).permit(:problem)
+  end
+
+  def correct_user
+    @post = current_user.products.find_by(id: params[:id])
+    unless @post
+      redirect_to root_url
+    end
   end
 
   # def correct_user

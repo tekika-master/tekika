@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.search(params[:search])
-    @products = Product.order(id: :desc).page(params[:page]).per(2)
+    # @products = Product.order(id: :desc).page(params[:page]).per(2)
   end
 
 

@@ -25,7 +25,7 @@
 							¥<%= product.price %>
 						</li>
 					</div>
-					<% else  @product.chosen == false %>
+					<% else  product.chosen == false %>
         	<div class="product_alive">
             <%= render 'products/review', review: @review %>
 

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 before_action :require_user_logged_in, only: [:index, :show, :exhibition,
-   :likes, :evaluates, :tweets, :microposts]
+   :likes, :evaluates, :tweets, :microposts, :good]
   def index
   end
 
@@ -112,13 +112,21 @@ before_action :require_user_logged_in, only: [:index, :show, :exhibition,
     def simple_time(time)
       time.strftime("%Y-%m-%d　%H:%M　")
     end
-
-
-    end
-
-
-
   end
+end
+
+#   def good
+#     @user = User.find(params[:id])
+#     @reviews = []
+#     @user.products.each do |product|
+#       Review.where(product_id: product.id).each do |review|
+#         @reviews << review
+#       end
+#     def simple_time(time)
+#       time.strftime("%Y-%m-%d　%H:%M　")
+#     end
+#   end
+# end
 
 
   private

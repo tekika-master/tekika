@@ -20,6 +20,8 @@ class Product < ApplicationRecord
 
   has_many :notifications, dependent: :destroy
 
+  default_scope -> { order(created_at: :desc) }
+
   def create_notification_by(current_user)
       # すでに「いいね」されているか検索
       temp = Notification.where(["visitor_id = ? and visited_id = ? and product_id = ? and action = ? ", current_user.id, user_id, id, 'favorite'])
@@ -31,6 +33,21 @@ class Product < ApplicationRecord
           action: 'favorite'
         )
         # 自分の投稿に対するいいねの場合は、通知済みとする
+        if notification.visitor_id == notification.visited_id
+          notification.checked = true
+        end
+        notification.save if notification.valid?
+      end
+
+      temp = Notification.where(["visitor_id = ? and visited_id = ? and product_id = ? and action = ? ", current_user.id, user_id, id, 'review'])
+      # 評価されていない場合のみ、通知レコードを作成
+      if temp.blank?
+        notification = current_user.active_notifications.new(
+          product_id:self.id,
+          visited_id:user_id,
+          action: 'review'
+        )
+        # 自分の投稿に対する評価の場合は、通知済みとする
         if notification.visitor_id == notification.visited_id
           notification.checked = true
         end

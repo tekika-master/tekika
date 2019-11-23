@@ -23,23 +23,18 @@
       </div>
 
       <div class="form-group">
-      <%= f.label :department, '学部', {class: 'post_search_tag'} %>
-      <%= f.radio_button :department, 1 %>法
-      <%= f.radio_button :department, 2 %>経済
-      <%= f.radio_button :department, 3 %>商
-      <%= f.radio_button :department, 4 %>文
-      <%= f.radio_button :department, 5 %>理
-      <%= f.radio_button :department, 6 %>SFC
-      <%= f.radio_button :department, 7 %>その他
+      <%= f.label :year, '年度', {class: 'name'} %>（４文字以下）
+      <%= f.text_area :year, class:'form-control' %>
       </div>
 
-      <div class="form-group">
-      <%= f.label :campus, 'キャンパス', {class: 'post_search_tag'} %>
-      <%= f.radio_button :campus, 1 %>日吉
-      <%= f.radio_button :campus, 2 %>三田
-      <%= f.radio_button :campus, 3 %>矢上
-      <%= f.radio_button :campus, 4 %>湘南藤沢
-      <%= f.radio_button :campus, 5 %>その他
+        <div class="post_form-group1"><b class="pr-4">学部</b>
+          <%= f.select :department, [['法学部'], ['経済学部'], ['商学部'], ['文学部'], ['理工学部'], ['SFC'], ['その他']] ,{include_blank: '選択してください' } %>
+        </div>
+
+
+      <div class="post_form-group2"><b class="pr-4">キャンパス</b>
+        <%= f.select :campus, [['日吉'], ['三田'], ['矢上'], ['湘南藤沢'], ['その他']] ,{include_blank: '選択してください' } %>
+
       </div>
 
 

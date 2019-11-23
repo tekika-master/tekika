@@ -16,7 +16,12 @@
 
 
 .search{
-   padding-top: 5px;
+   padding-top: 7px;
+
+}
+
+.notification{
+
 }
 
 li{
@@ -32,7 +37,7 @@ li{
 .top-font{
     padding-top: 120px;
     font-style: italic;
-    color: #DDDDDD;
+    color: white;
 }
 .top-font h1 {
   font-weight: bold;
@@ -396,30 +401,43 @@ text-align: center;
 }
 
 .posting p{
-  font-size: 50px;
+  font-size: 45px;
   font-weight: bold;
   font-style: italic;
-}
 
-.post{
-  display: inline-block;
-  padding-right: 80px;
-}
-
-.cancel{
-  display: inline-block;
-}
-
-.recieve{
-  padding-top: 100px;
-  padding-left: 90px;
 }
 
 .posts-post{
   padding-bottom: 30px;
+  padding-left: 8%;
 }
 
+.post_header li{
+  display: inline-block;
 
+}
+
+.post_header{
+  padding-left: 0;
+}
+
+.post{
+  display: inline-block;
+  /* padding-right: 29%; */
+  padding-right: 2%;
+}
+
+.cancel{
+  display: inline-block;
+  /* padding-left: 30%; */
+  padding-right: 2%;
+}
+
+.recieve{
+  display: inline-block;
+  /* padding-top: 100px;
+  padding-left: 30%; */
+}
 
 .post_search{
   display: inline-block;
@@ -453,7 +471,7 @@ text-align: center;
 }
 
 .micropost-name{
-  font-size: 50px;
+  font-size: 47px;
   font-weight: bold;
   font-style: italic;
 }
@@ -554,7 +572,7 @@ position: absolute;
 
 .product_sold::before{
   /* 透過した黒を上から重ねるイメージ */
-  background-color: rgba(255,0,0,0.6);
+  background-color: rgba(190,0,0,0.6);
   /* 自由に位置指定 */
   position: absolute;
   top: 0;
@@ -620,7 +638,7 @@ font-family :Quicksand, sans-serif;/*Google Font*/
 
 .my_product_sold::before{
   /* 透過した黒を上から重ねるイメージ */
-  background-color: rgba(255,0,0,0.6);
+  background-color: rgba(190,0,0,0.6);
   /* 自由に位置指定 */
 
   position: absolute;
@@ -669,4 +687,81 @@ font-family :Quicksand, sans-serif;/*Google Font*/
  left: 50%;
  transform: translate(-50%, -50%);
  margin-bottom: 50px;
+}
+
+/* ページネーションデザイン */
+.pagination>li>a {
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {
+  background: #93c9ff;     /*背景の色を変える*/
+     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+   /*角を丸くする*/
+}
+
+.purchase_font{
+  font-size: 30px;
+  font-weight: bold;
+  background: red;
+  color: white;
+  border-radius: 15px;
+  text-align: center;
+  margin-left: 32%;
+  margin-right: 32%;
+}
+
+.tbody{
+  margin-left: 10px;
+}
+
+.post_form-group1{
+  padding-top: 20px;
+}
+
+.post_form-group2{
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+.new_posting{
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight:bold;
+  padding-top: 20px;
+  height: 70px;
+  width: 70px;
+  margin-bottom:10px;
+}
+
+.review_post{
+  margin-left: 34%;
+  margin-top: 80px;
+}
+
+.item-list{
+  position: relative;
+  display: inline-block;
+}
+.post-year{
+  position: absolute;
+  left: 8px;
+  bottom: 53px;
+  width: 80px;
+  color: #fff;
+  background: 	#444444;
+  font-size:20px;
+  border-radius: 10px 10px 10px 10px;
+
+}
+
+.post-year h9{
+  font-size: 18px;
+  margin-left: 1px;
 }
