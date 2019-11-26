@@ -1,32 +1,33 @@
+ <%= render 'admin/users/search_form' %>
+
 <div id="admin_user_index">
     <div class="aui_content">
-        <h1>会員一覧</h1>
+        <b class="user_all pr-3">会員一覧</b><span class="user_count badge badge-secondary">総ユーザー数：<%= @counts %>人</span>
 
             <table border="1">
                 <tr>
-                    <th width=100>id</th>
-                    <th width=300>ユーザー名</th>
+                    <th width=50>id</th>
+                    <th width=280>ユーザー名</th>
                     <th width=300>メールアドレス</th>
-                    <th width=100>詳細</th>
-                    <th width=100>編集</th>
                     <th width=100>退会</th>
                 </tr>
 
                 <% @users.each do |user|%>
                 <tr>
                     <td><%= user.id%></td>
-                    <td><%= user.last_name_characters%><%= user.first_name_characters%></td>
+                    <td><%= user.name%></td>
                     <td><%= user.email%></td>
-                    <td><%= link_to "詳細", admin_user_path(user)%></td>
-                    <td><%= link_to "編集", edit_admin_user_path(user)%></td>
-                    <% if user.discarded_at.nil? %>
-                    <td><%= link_to "退会", leave_path, method: :delete, "data-confirm" => "本当に退会しますか？"%> </td>
-                    <% else %>
-                    <td> 退会済み </td>
-                    <% end %>
+                    <%# <% if user.destroyed_a.nil? %>
+                      <td><%= link_to "退会", admin_user_path(user), method: :delete, "data-confirm" => "本当に退会させますか？"%> </td>
+                    <%# <% else %>
+                      <%# <td> 退会済み </td> %>
+                    <%# <% end %>
                 </tr>
                 <%end%>
             </table>
 
     </div>
+</div>
+<div class="mt-4">
+<%= paginate @users %>
 </div>

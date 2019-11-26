@@ -18,35 +18,35 @@
       </div>
       <div class="form-group">
       <%= f.label :title, '教科書名', {class: 'name'} %>
-      <%= f.text_area :title, class:'form-control' %>
+      <%= f.text_area :title, class:'form-control', placeholder:"松田道雄と「いのち」の社会主義" %>
       </div>
 
       <div class="form-group">
       <%= f.label :price, '値段', {class: 'name'} %>
-      <%= f.text_area :price, class:'form-control' %>
+      <%= f.text_area :price, class:'form-control', placeholder:"1000" %>
       </div>
 
       <div class="form-group">
-      <%= f.label :lecture, '講義名', {class: 'name'} %>
-      <%= f.text_area :lecture, class:'form-control' %>
+      <%= f.label :lecture, '教授・講義名', {class: 'name'} %>
+      <%= f.text_area :lecture, class:'form-control', placeholder:"高草木・社会思想史" %>
       </div>
 
       <div class="form-group">
       <%= f.label :university, '学部名', {class: 'name'} %>
-      <%= f.text_area :university, class:'form-control' %>
+      <%= f.text_area :university, class:'form-control', placeholder:"経済学部" %>
       </div>
 
       <div class="form-group">
       <%= f.label :place, '受け渡し場所', {class: 'name'} %>
-      <%= f.text_area :place, class:'form-control' %>
+      <%= f.text_area :place, class:'form-control', placeholder:"三田キャンパス" %>
       </div>
 
       <div class="form-group">
       <%=f.label :writing, '状態', {class: 'name'} %>
-      <%= f.text_area :writing, class:'form-control', rows: 5 %>
+      <%= f.text_area :writing, class:'form-control', rows: 5 , placeholder:"楽単で有名な高草木の社会思想史です。テストの際に一度だけ使用しただけなのでとても状態は良いかと思います。木曜日の三限が空きコマなのでその時間に三田キャンパスに来れる方が好ましいです。よろしくお願いします。" %>
       </div>
 
-      <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
+      <%= f.submit 'Post', class: 'btn btn-primary btn-block mb-5' %>
     <% end %>
   </div>
 </div>

@@ -214,20 +214,6 @@ li{
   border-radius: 15px;
 }
 
-/* #post i {
-  font-size: 100px;
-  color: #aaa;
-  line-height: 250px;
-  transition: 0.3s ease-out;
-}
-
-#post i.add {
-  display: none;
-  font-size: 50px;
-  position: absolute;
-  padding: 30px 0 0 30px
-} */
-
  #img:hover {
   background-color: #EDBC6C;
   transition: 0.3s ease-out;
@@ -237,12 +223,54 @@ li{
   color: #fff;
 }
 
-/* #img_file:hover i {
+#product_file:hover {
+  transition: 0.3s ease-out;
+  display: block;
+  color: ;
+}
+
+#post_file:hover {
   transition: 0.3s ease-out;
   display: block;
   color: #fff;
-} */
+}
 
+#user_img {
+ /* font-size: 15px; */
+ margin-top: 10px;
+ padding: 5px 8px;
+ border: solid 1px #EDBC6C;
+ color: #666;
+ position: relative;
+ padding: 0;
+ cursor: pointer;
+ width: 180px;
+ height: 180px;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: contain;
+ background-color: #fff;
+ overflow: hidden;
+ box-sizing: border-box;
+ transition: 0.3s ease-out;
+ border-radius: 120px;
+}
+
+
+#user_img:hover {
+ background-color: #EDBC6C;
+ transition: 0.3s ease-out;
+ opacity: 0.9;
+ transition: 0.3s ease-out;
+ display: block;
+ color: #fff;
+}
+
+#user_file:hover p{
+ transition: 0.3s ease-out;
+ display: block;
+ color: #fff;
+}
 
 
 /* ユーザーの評価欄 */
@@ -409,7 +437,7 @@ text-align: center;
 }
 
 .posts-post{
-  padding-bottom: 30px;
+  padding-bottom: 0px;
   padding-left: 8%;
 }
 
@@ -676,7 +704,7 @@ font-family :Quicksand, sans-serif;/*Google Font*/
 
 .posts ul{
   position: absolute;
- padding-top: 540px;
+ padding-top: 650px;
  left: 50%;
  transform: translate(-50%, -50%);
  margin-bottom: 50px;
@@ -714,6 +742,11 @@ font-family :Quicksand, sans-serif;/*Google Font*/
   color: white;
   border-radius: 15px;
   text-align: center;
+  margin-left: 32%;
+  margin-right: 32%;
+}
+
+.purchasing_font{
   margin-left: 32%;
   margin-right: 32%;
 }
@@ -765,4 +798,26 @@ font-family :Quicksand, sans-serif;/*Google Font*/
 .post-year h9{
   font-size: 18px;
   margin-left: 1px;
+}
+
+.count_posts{
+  padding:5px 5px 5px 10px ;
+  font-size: 18px;
+  background-color: white;
+  border-radius: 15px;
+  margin-right: 60%;
+  margin-bottom: 15px;
+}
+
+.user_all{
+  font-size: 25px;
+}
+
+.user_count{
+  font-size: 15px;
+}
+
+.card-title{
+  text-align: center;
+  height: 25px;
 }

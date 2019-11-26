@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :require_user_logged_in
-  before_action :correct_user, only: [:destroy]
+  # before_action :correct_user, only: [:destroy]
+  # before_action :admin_user, only: [:edit, :destroy, :update]
 
   def cancel
     @product = Product.find(params[:product_id])
@@ -42,6 +43,10 @@ class ProductsController < ApplicationController
       @product.update(product_params)
       flash[:success] = '商品を編集しました。'
       redirect_to root_url
+    else current_user.admin?
+      @product.update(product_params)
+      flash[:success] = '商品を編集しました。'
+      redirect_to root_url
     end
   end
 
@@ -62,9 +67,18 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product.destroy
-    flash[:success] = '商品を削除しました。'
-    redirect_to root_url
+    product = Product.find(params[:id])
+    if current_user.admin?
+      product.destroy
+        flash[:success] = '商品を削除しました。'
+      redirect_to root_url
+    else
+      if current_user == @product.user
+        product.destroy
+          flash[:success] = '商品を削除しました。'
+        redirect_to root_url
+      end
+    end
   end
 
   def show
@@ -113,12 +127,24 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:image, :title, :price, :lecture, :university, :place, :writing)
   end
 
-  def correct_user
-    @product = current_user.products.find_by(id: params[:id])
-    unless @product
-      redirect_to root_url
-    end
-  end
+  # def correct_user
+  #   @product = current_user.products.find_by(id: params[:id])
+  #   unless @product
+  #     redirect_to root_url
+  #   end
+
+    # if current_user == @product.user
+    #     @product = current_user.products.find_by(id: params[:id])
+    # else current_user.admin?
+    #   @product.update(product_params)
+    #   flash[:success] = '商品を編集しました。'
+    #   redirect_to root_url
+    # end
+  # end
+
+  # def admin_user
+  #   redirect_to(root_url) unless current_user.admin?
+  # end
 
   def picture_size
       if picture.size > 5.megabytes

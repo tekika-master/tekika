@@ -3,7 +3,9 @@
   <li class="posting">
     <p>Past Exams </p>
   </li>
-  
+
+
+
 
   <li class="posts-post">
     <%= link_to '投稿', post_path, class: 'new_posting btn btn-lg btn-primary'  %>
@@ -11,7 +13,11 @@
 </ul>
 
 
+
 <li class="post-searching col-md-4 pl-4">
+  <div class="count_posts">
+    <b>Total : <%= @counts %>問</b>
+  </div>
  <%= render 'posts/search_form' %>
 </li>
 

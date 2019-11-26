@@ -1,25 +1,18 @@
 class Admin::UsersController < ApplicationController
-  before_action :admin_user
+  before_action :admin_user, only: :destroy
 
   def index
-    @users = User.all.order(created_at: :desc)
-    @user = User.find(params[:id])
+    # @users = User.all.order(created_at: :desc)
+    @q = User.ransack(params[:q])
+      @users = @q.result.order(id: :desc).page(params[:page]).per(20)
+    @counts = User.count
   end
 
   def destroy
-    @user = User.find_by(id: params[:id])
-    @products = Product.where(user_id: params[:id])
-
-    if @products.empty?
-      @user.destroy
-      redirect_back(fallback_location: root_path)
-      flash[:success] = 'ユーザーを削除しました。'
-    else
-      @products.destroy
-      @user.destroy
-      redirect_back(fallback_location: root_path)
-      flash[:success] = 'ユーザーを削除しました。'
-    end
+    user = User.find(params[:id])
+      user.destroy
+      flash[:notice] = "退会させました"
+      redirect_to admin_users_path
   end
 
   private

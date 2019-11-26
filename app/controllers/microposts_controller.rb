@@ -1,6 +1,6 @@
 class MicropostsController < ApplicationController
   before_action :require_user_logged_in
-  before_action :correct_user, only: [:destroy]
+  # before_action :correct_user, only: [:destroy]
 
 
 
@@ -30,9 +30,18 @@ class MicropostsController < ApplicationController
   end
 
   def destroy
-    @micropost.destroy
-    flash[:success] = 'メッセージを削除しました。'
+    micropost = Micropost.find(params[:id])
+    if current_user.admin?
+      micropost.destroy
+      flash[:success] = 'メッセージを削除しました。'
     redirect_back(fallback_location: root_path)
+    else
+      if current_user == @micropost.user
+        micropost.destroy
+        flash[:success] = 'メッセージを削除しました。'
+      redirect_back(fallback_location: root_path)
+      end
+    end
   end
 
   def edit
@@ -65,10 +74,10 @@ class MicropostsController < ApplicationController
   #   params.require(:w).permit(:easy, :info, :exam, :other)
   # end
 
-  def correct_user
-   @micropost = current_user.microposts.find_by(id: params[:id])
-   unless @micropost
-     redirect_to root_url
-   end
- end
+ #  def correct_user
+ #   @micropost = current_user.microposts.find_by(id: params[:id])
+ #   unless @micropost
+ #     redirect_to root_url
+ #   end
+ # end
 end

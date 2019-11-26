@@ -6,8 +6,7 @@
 					<% if product.chosen == true && product.reviews.present? %>
 					<div class="product_sold">
             <%= render 'products/review', review: @review %>
-
-						<%= image_tag(product.image.to_s, class:'image',:size => '180x180') %>
+							<%= image_tag(product.image.to_s, class:'image',:size => '180x180') %>
 						<p> sold out </p>
 
 						<li class="home-price">
@@ -28,10 +27,9 @@
 					<% else  product.chosen == false %>
         	<div class="product_alive">
             <%= render 'products/review', review: @review %>
-
-						<%= image_tag(product.image.to_s, class:'image',:size => '180x180') %>
-
-
+							<%= link_to image_path product.image  do %>
+								<li><%= image_tag(product.image.to_s, class:'image',:size => '180x180') %></li>
+							<% end %>
 						<li class="home-price">
 							¥<%= product.price %>
 						</li>

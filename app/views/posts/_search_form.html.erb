@@ -2,7 +2,7 @@
 <ul class="searched pl-2">
   <p>
     <%= f.label :problem, '講義名', {class: 'search_name'} %>
-    <%= f.search_field :problem_cont, placeholder:" ミクロ経済学", class:'search_field' %>
+    <%= f.search_field :problem_cont, placeholder:" 須田・ミクロ経済学", class:'search_field' %>
   </p>
   <p><b class="search_name pr-3">学部</b>
     <%= f.select :department_eq, [['法学部'], ['経済学部'], ['商学部'], ['文学部'], ['理工学部'], ['SFC'], ['その他']] ,{include_blank: '選択してください' } %>

@@ -4,9 +4,11 @@
         <!-- <li class="media mb-3"> -->
           <div class="twitter-user">
             <% if micropost.user.image.url present? %>
-              <%= image_tag(micropost.user.image.url,class:'user-image',width: '70px')%>
+              <%= link_to image_path micropost.user.image  do %>
+                <%= image_tag(micropost.user.image.url,class:'user-image',width: '70px')%>
+              <% end %>
             <% else %>
-            <%= image_tag "/assets/user.jpg",class:'user-image',width: '70px' %>
+              <%= image_tag "/assets/user.jpg",class:'user-image',width: '70px' %>
             <% end %>
           </div>
           <div class="twitter-body", style="width: 75%; display: inline-block; word-break: break-all;">
@@ -21,6 +23,8 @@
           </div>
           <div>
             <% if current_user == micropost.user %>
+              <%= link_to "削除", micropost, method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'micropost_delete btn btn-danger btn-sm' %>
+            <% else current_user.admin? %>
               <%= link_to "削除", micropost, method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'micropost_delete btn btn-danger btn-sm' %>
             <% end %>
           </div>

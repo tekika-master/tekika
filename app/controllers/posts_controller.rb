@@ -1,15 +1,14 @@
 class PostsController < ApplicationController
-before_action :correct_user, only: [:destroy]
+
 
   def index
     @q = Post.ransack(params[:q])
       @posts = @q.result.order(id: :desc).page(params[:page]).per(20)
-      counts(@user)
+    @counts = Post.count
   end
 
   def show
-    @post = Post.find(params[:id])
-    @user = @post.user
+
   end
 
   def new
@@ -27,26 +26,43 @@ before_action :correct_user, only: [:destroy]
     end
   end
 
+  def edit
+     @post = Post.find_by(params[:id])
+  end
+
   def update
-    @post = Post.find(params[:id])
+    @post = Post.find_by(params[:id])
     if current_user == @post.user
       @post.update(post_params)
-      flash[:success] = '過去問を編集しました。'
-      redirect_to root_url
+        flash[:success] = '商品を編集しました。'
+      redirect_to '/posts'
+    else current_user.admin?
+      @post.update(post_params)
+        flash[:success] = '商品を編集しました。'
+      redirect_to '/posts'
     end
   end
 
   def destroy
-    @post.destroy
-    flash[:success] = '過去問を削除しました。'
-    redirect_to root_url
+    post = Post.find(params[:id])
+    if current_user.admin?
+      post.destroy
+      flash[:success] = '過去問を削除しました。'
+    redirect_back(fallback_location: root_path)
+    else
+      if current_user == @post.user
+        post.destroy
+        flash[:success] = '過去問を削除しました。'
+      redirect_back(fallback_location: root_path)
+      end
+    end
   end
 
   def search
     @q = Post.search(search_params)
     @posts = @q.result(distinct: true)
   end
-
+end
 
   private
 
@@ -58,12 +74,12 @@ before_action :correct_user, only: [:destroy]
     params.require(:q).permit(:problem)
   end
 
-  def correct_user
-    @post = current_user.products.find_by(id: params[:id])
-    unless @post
-      redirect_to root_url
-    end
-  end
+  # def correct_user
+  #   @post = current_user.products.find_by(id: params[:id])
+  #   unless @post
+  #     redirect_to root_url
+  #   end
+  # end
 
   # def correct_user
   #   @post = current_user.posts.find_by(id: params[:id])
@@ -77,4 +93,3 @@ before_action :correct_user, only: [:destroy]
   #       errors.add(:picture, "should be less than 5MB")
   #     end
   # end
-end
