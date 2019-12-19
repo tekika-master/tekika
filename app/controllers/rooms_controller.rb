@@ -7,6 +7,7 @@ class RoomsController < ApplicationController
 		@product = Product.find(params[:product_id])
 		@product.chosen = true
 			if @product.save
+				@product.create_purchase_notification_by(current_user)
       	flash[:success] = '商品を購入しました。'
 			end
 		# 商品のIDを前のフォームで引っ張ってくる
@@ -29,7 +30,7 @@ class RoomsController < ApplicationController
     @messages = Message.where(room_id: params[:id])
     @message = Message.new
     @entries = @room.entries
-		@product = Product.find(params[:id])
+		@product = Product.find(@room.product_id)
 		@user = @product.user
     # 	if Entry.where(:user_id => current_user.id, :room_id => @room.id).present?
     #   	@messages = @room.messages

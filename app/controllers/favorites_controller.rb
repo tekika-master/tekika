@@ -4,7 +4,7 @@ class FavoritesController < ApplicationController
   def create
     # favorite = current_user.active_favorite.new(product_id:params[:product_id])
     product = Product.find(params[:product_id])
-    product.create_notification_by(current_user)
+    product.create_favorite_notification_by(current_user)
     current_user.favorite(product)
     flash[:success] = "商品をいいねしました。"
     respond_to do |format|

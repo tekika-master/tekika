@@ -44,10 +44,11 @@
   </ul>
 </div>
 
+<% notification = @product.notifications.find_by(action: 'submit') %>
 
 <div class="text-center mb-5">
 <% if current_user == @product.user %>
-  <% if @product.reviews.blank? %>
+  <% if notification.nil?%>
     <%= link_to '編集', "/products/#{@product.id}/edit", :style=>"color:white;", method: :get , class: 'btn btn-warning'%>
     <%= link_to "削除", @product, method: :delete, data: { confirm: "本当にこの商品を削除しますか？" }, :style=>"color:white;", class: 'btn btn-warning' %>
 
@@ -58,7 +59,7 @@
        <%= link_to "削除", @product, method: :delete, data: { confirm: "本当にこの商品を削除しますか？" }, :style=>"color:white;", class: 'btn btn-warning' %>
      <% end %>
     <% end %>
-  <% else @product.reviews.present? %>
+  <% else notification.present? %>
     <p class="purchase_font"> 売却済 </p>
     <% if current_user.admin? %>
       <%= link_to '編集', "/products/#{@product.id}/edit", :style=>"color:white;", method: :get , class: 'btn btn-warning'%>
@@ -72,13 +73,13 @@
       <%= link_to '編集', "/products/#{@product.id}/edit", :style=>"color:white;", method: :get , class: 'btn btn-warning'%>
       <%= link_to "削除", @product, method: :delete, data: { confirm: "本当にこの商品を削除しますか？" }, :style=>"color:white;", class: 'btn btn-warning' %>
     <% end %>
-  <% elsif @isRoom == false && @product.chosen == true && @product.reviews.present? %>
+  <% elsif @isRoom == false && @product.chosen == true && notification.present? %>
       <p class="purchase_font"> 購入済 </p>
       <% if current_user.admin? %>
         <%= link_to '編集', "/products/#{@product.id}/edit", :style=>"color:white;", method: :get , class: 'btn btn-warning'%>
         <%= link_to "削除", @product, method: :delete, data: { confirm: "本当にこの商品を削除しますか？" }, :style=>"color:white;", class: 'btn btn-warning' %>
       <% end %>
-  <% elsif @isRoom == false && @product.chosen == true && @product.reviews.blank?%>
+  <% elsif @isRoom == false && @product.chosen == true && notification.nil? %>
       <p class="purchase_font"> 取引中 </p>
       <% if current_user.admin? %>
         <%= link_to '編集', "/products/#{@product.id}/edit", :style=>"color:white;", method: :get , class: 'btn btn-warning'%>

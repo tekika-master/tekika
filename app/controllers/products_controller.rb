@@ -6,8 +6,14 @@ class ProductsController < ApplicationController
   def cancel
     @product = Product.find(params[:product_id])
 		@product.chosen = false
+    @room = Room.find(params[:room_id])
+    @room.entries.each do |entry|
+      if entry.user_id != current_user.id
+        @buy_user = User.find_by(id: entry.user_id)
+      end
+    end
 			if @product.save
-        @room = Room.find(params[:room_id])
+        @room.create_cancel_notification_by(@buy_user)
         @room.destroy
       	flash[:success] = '取引をキャンセルしました。'
         redirect_to root_url
@@ -73,7 +79,7 @@ class ProductsController < ApplicationController
         flash[:success] = '商品を削除しました。'
       redirect_to root_url
     else
-      if current_user == @product.user
+      if current_user == product.user
         product.destroy
           flash[:success] = '商品を削除しました。'
         redirect_to root_url
