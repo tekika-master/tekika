@@ -6,8 +6,9 @@ before_action :require_user_logged_in, only: [:index, :show, :exhibition,
 
   def show
     @user = User.find(params[:id])
-    # @likes = @user.products.page(params[:page])
-    @microposts = current_user.microposts.order(id: :desc).page(params[:page]).per(15)
+    @products = @user.products.order(id: :desc).page(params[:page]).per(20)
+    @likes = @user.likes.order(id: :desc).page(params[:page]).per(20)
+    @evaluates = @user.evaluates.order(id: :desc).page(params[:page]).per(20)
     counts(@user)
   end
 
@@ -66,39 +67,39 @@ before_action :require_user_logged_in, only: [:index, :show, :exhibition,
 
   def likes
     @user = User.find(params[:id])
-    @likes = @user.likes.order(id: :desc).page(params[:page])
+    @likes = @user.likes.order(id: :desc).page(params[:page]).per(20)
     counts(@user)
   end
 
   def evaluates
     @user = User.find(params[:id])
-    @evaluates = @user.evaluates.order(id: :desc).page(params[:page])
+    @evaluates = @user.evaluates.order(id: :desc).page(params[:page]).per(20)
     counts(@user)
   end
 
   def exhibition
     @user = User.find(params[:id])
-    @products = @user.products.order(id: :desc).page(params[:page])
+    @products = @user.products.order(id: :desc).page(params[:page]).per(20)
     counts(@user)
   end
 
   def microposts
     @user = User.find(params[:id])
-    @microposts = @user.microposts.order(id: :desc).page(params[:page])
+    @microposts = @user.microposts.order(id: :desc).page(params[:page]).per(20)
     counts(@user)
   end
 
 
   def tweets
     @user = User.find(params[:id])
-    @microposts = @user.microposts.order(id: :desc).page(params[:page])
+    @microposts = @user.microposts.order(id: :desc).page(params[:page]).per(20)
     counts(@user)
   end
 
 
   def problem
     @user = User.find(params[:id])
-    @posts = @user.posts.order(id: :desc).page(params[:page])
+    @posts = @user.posts.order(id: :desc).page(params[:page]).per(20)
     counts(@user)
   end
 

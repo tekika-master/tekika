@@ -3,8 +3,8 @@ class User < ApplicationRecord
     mount_uploader :image, ImagesUploader
 
     validates :name, presence: true, length: {maximum: 7 }
-    validates :email, presence: true, length: {maximum: 30 },
-                      format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
+    validates :email, presence: true, length: {maximum: 50 },
+                      format: {with: /\A[\w+\-.]+@[keio]+\.[jp]+\z/i },
                       uniqueness: {case_sensitive: false}
 
 has_secure_password
@@ -26,6 +26,9 @@ has_secure_password
    has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
    has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
    has_many :notifications, dependent: :destroy
+
+   # devise :database_authenticatable, :registerable,
+   #       :recoverable, :rememberable, :trackable, :validatable, :confirmable #最後のやつを追加
 
 
   def favorite(product)

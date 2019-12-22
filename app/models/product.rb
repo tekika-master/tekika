@@ -55,18 +55,18 @@ class Product < ApplicationRecord
       end
     end
 
-    def self.search(search)
-     return Product.all unless search
-     Product.where(['lecture LIKE ?', "%#{search}%"])
-   end
+    # def self.search(search)
+    #  return Product.all.page(params[:page]).per(3) unless search
+    #  Product.where(['lecture LIKE ?', "%#{search}%"])
+    # end
+    #
 
 
-
-  # def self.search(search) #self.でクラスメソッドとしている
-  #     if search # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
-  #       Product.where(['lecture LIKE ?', "%#{search}%"])
-  #     else
-  #       Product.all #全て表示。
-  #     end
-  #   end
+  def self.search(search) #self.でクラスメソッドとしている
+      if search # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
+        Product.where(['lecture LIKE ?', "%#{search}%"])
+      else
+        Product.order(id: :desc).page(params[:page]).per(20)
+      end
+    end
 end

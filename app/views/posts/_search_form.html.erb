@@ -5,12 +5,12 @@
     <%= f.search_field :problem_cont, placeholder:" 須田・ミクロ経済学", class:'search_field' %>
   </p>
   <p><b class="search_name pr-3">学部</b>
-    <%= f.select :department_eq, [['法学部'], ['経済学部'], ['商学部'], ['文学部'], ['理工学部'], ['SFC'], ['その他']] ,{include_blank: '選択してください' } %>
+    <%= f.select :department_eq, [['法学部'], ['経済学部'], ['商学部'], ['文学部'], ['理工学部'], ['SFC'], ['その他'], ['学部共通']] ,{include_blank: '指定なし　　' } %>
 
   </p>
   <p><b class="search_name pr-3">キャンパス</b>
 
-    <%= f.select :campus_eq, [['日吉'], ['三田'], ['矢上'], ['湘南藤沢'], ['その他']] ,{include_blank: '選択してください' } %>
+    <%= f.select :campus_eq, [['日吉'], ['三田'], ['矢上'], ['湘南藤沢'], ['その他']] ,{include_blank: '指定なし　　' } %>
 
   </p>
   <p><%= f.submit "検索する", class:'search_search' %></p>

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'toppages#index'
 
+  # mount LetterOpenerWeb::Engine, at: "/letter_opener"
+
     get 'search', to: 'products#index'
 
   get 'login', to: 'sessions#new'

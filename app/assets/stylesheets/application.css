@@ -30,7 +30,7 @@ li{
 }
 
 .bg-img{
-    background:linear-gradient(to top, rgba(80, 100, 150, 100) 0%, rgba(151, 217, 225, 0.7) 100%),url(keio.jpg);;
+    background:linear-gradient(to top, rgba(100, 100, 100, 60) 0%, rgba(0, 0, 128, 0.7) 100%),url(keio.jpg);;
     height: 450px;
     background-size:cover;
 }
@@ -54,6 +54,7 @@ li{
   padding-top: 6px;
   padding-bottom: 6px;
   color: white;
+  font-weight: bold;
 }
 
 .elements{
@@ -68,7 +69,9 @@ li{
   border-radius: 0 0 15px 15px;
   margin-top: -10px;
   padding: 5px;
-  color: #222222;
+  color:#555555;
+  font-weight: ;
+  font-size: 18px;
   font-weight: bold;
 
 }
@@ -244,8 +247,8 @@ li{
  position: relative;
  padding: 0;
  cursor: pointer;
- width: 180px;
- height: 180px;
+ width: 220px;
+ height: 220px;
  background-position: center;
  background-repeat: no-repeat;
  background-size: contain;
@@ -374,8 +377,6 @@ display: inline-block;
 
 .review-content-all{
 display: inline-block;
-
-
 }
 
 .review-content-font{
@@ -384,11 +385,15 @@ display: inline-block;
 
 .review-content{
 background-color: white;
-padding: 7px 60px 7px 10px;
+padding: 7px 7px 7px 10px;
 display: inline-block;
 margin-right: 40px;
 border-radius: 15px;
  }
+
+.review-content p{
+  color: #666666;
+}
 
 
 
@@ -426,7 +431,10 @@ text-align: center;
   font-weight: bold;
   padding-top: 5px;
   padding-bottom: 10px;
+}
 
+.user-twitter-image{
+  border-radius: 40px;
 }
 
 .posting p{
@@ -704,7 +712,7 @@ font-family :Quicksand, sans-serif;/*Google Font*/
 
 .posts ul{
   position: absolute;
- padding-top: 650px;
+ padding-top: 580px;
  left: 50%;
  transform: translate(-50%, -50%);
  margin-bottom: 50px;
@@ -712,11 +720,20 @@ font-family :Quicksand, sans-serif;/*Google Font*/
 
 .products ul{
   position: absolute;
- padding-top: 560px;
+  margin-top: 320px;
  left: 50%;
  transform: translate(-50%, -50%);
  margin-bottom: 50px;
 }
+
+ .notifications ul{
+   position: absolute;
+   margin-top: 320px;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   margin-bottom: 50px; margin-top: 50px;
+
+ }
 
 /* ページネーションデザイン */
 .pagination>li>a {
@@ -820,4 +837,11 @@ font-family :Quicksand, sans-serif;/*Google Font*/
 .card-title{
   text-align: center;
   height: 25px;
+}
+
+.user-view{
+  border-bottom: 1px solid white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
 }

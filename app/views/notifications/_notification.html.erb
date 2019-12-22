@@ -3,26 +3,22 @@
 <%# <% visited = notification.visited %>
 <% post = notification.product %>
 
-<div class="user-view clearfix ">
+<div class="user-view clearfix">
   <%= link_to user_path(notification.visitor) do %>
-    <%=  image_tag notification.visitor.image.to_s, class:"user-image", style:"width: 60px;"%>
     <%= visitor.name %>
   <% end %>
-    <%= "さんが"%>
+    <%= "が"%>
   <% case notification.action %>
     <% when 'favorite' then %>
       <%= link_to 'あなたの商品', notification.product, style: "font-weight: bold;" %>
       <%= "にいいねしました"%>
       <span class="moderate-font"><%= " (#{time_ago_in_words(notification.created_at)}前)" %></span>
-
     <% when 'review' then %>
       <%= link_to 'あなたの商品', notification.product, style: "font-weight: bold;" %>
       <%= "を評価しました"%>
       <span class="moderate-font"><%= " (#{time_ago_in_words(notification.created_at)}前)" %></span>
     <% end %>
 
-
-  <br>
   <% if !@comment.nil? %>
     <p class="moderate-font"><%= @comment %></p>
   <% end %>

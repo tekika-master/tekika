@@ -4,14 +4,14 @@
     <div id="item-list">
        <div class="item-list">
          <%= link_to image_path post.image  do %>
-           <li>	<%= image_tag(post.image.to_s, class:'image',:size => '180x180') %></li>
+           <li>	<%= image_tag(post.image.to_s, class:'image',:size => '190x190') %></li>
          <% end %>
          <li class="post-name"><%= post.problem %></li>
          <li class="post-year"><%= post.year %><h9>年</h9></li>
        </div>
        <div class="mb-4">
          <% if current_user.admin? %>
-           <%= link_to '編集', "/posts/#{@post}/edit", :style=>"color:white;", method: :get , class: 'btn btn-warning'%>
+           <%= link_to '編集', "/posts/#{post.id}/edit", :style=>"color:white;", method: :get , class: 'btn btn-warning'%>
            <%= link_to "削除", "/posts/#{post.id}/destroy", method: :delete, data: { confirm: "本当にこの商品を削除しますか？" }, :style=>"color:white;", class: 'btn btn-warning' %>
          <% end %>
       </div>

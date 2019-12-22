@@ -37,10 +37,12 @@
     <%= link_to "取引キャンセル", cancel_path(product_id: @room.product_id, room_id: @room.id), method: :patch, :style=>"color:white;", class: 'btn btn-danger btn', data:{ confirm:"この取引をキャンセルしますか？"}%>
   </div>
 
-  <% if current_user != @product.user %>
-    <div class="recieve">
-      <%= link_to "受け取り完了", new_review_path(product_id: @room.product_id), :style=>"color:white;", class: 'btn btn-warning btn'%>
-    </div>
+  <% if current_user == @product.user %>
+  <div class="recieve">
+    <%= link_to "受け取り完了", new_review_path(product_id: @room.product_id), :style=>"color:white;", class: 'btn btn-warning btn'%>
+  </div>
+  <% else current_user != @product.user %>
+
   <% end %>
 
 <% end %>

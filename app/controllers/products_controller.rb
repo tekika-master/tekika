@@ -28,8 +28,7 @@ class ProductsController < ApplicationController
   # end
 
   def index
-    @products = Product.search(params[:search])
-    # @products = Product.order(id: :desc).page(params[:page]).per(2)
+    @products = Product.search(params[:search]).page(params[:page]).per(20)
   end
 
 
@@ -67,17 +66,15 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    product = Product.find(params[:id])
-    if current_user.admin?
-      product.destroy
+    @product = Product.find(params[:id])
+    if current_user == @product.user
+      @product.destroy
         flash[:success] = '商品を削除しました。'
       redirect_to root_url
-    else
-      if current_user == @product.user
-        product.destroy
-          flash[:success] = '商品を削除しました。'
-        redirect_to root_url
-      end
+    else current_user.admin?
+      @product.destroy
+        flash[:success] = '商品を削除しました。'
+      redirect_to root_url
     end
   end
 

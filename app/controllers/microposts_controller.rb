@@ -30,14 +30,14 @@ class MicropostsController < ApplicationController
   end
 
   def destroy
-    micropost = Micropost.find(params[:id])
+    @micropost = Micropost.find(params[:id])
     if current_user.admin?
-      micropost.destroy
+      @micropost.destroy
       flash[:success] = 'メッセージを削除しました。'
     redirect_back(fallback_location: root_path)
     else
       if current_user == @micropost.user
-        micropost.destroy
+        @micropost.destroy
         flash[:success] = 'メッセージを削除しました。'
       redirect_back(fallback_location: root_path)
       end

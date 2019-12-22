@@ -4,9 +4,9 @@
       <%= f.label :image, 'ユーザー画像', {class: 'name'} %>
       <div id="user_img" onClick="$('#user_file').click()">
         <% if @user.image? %>
-          <%= image_tag @user.image.url, id:"user_img_prev", :size => '180x180' %>
+          <%= image_tag @user.image.url, id:"user_img_prev", :size => '220x220' %>
         <% else %>
-          <%= image_tag "/assets/user.jpg", id:"user_img_prev", :size => '180x180' %>
+          <%= image_tag "/assets/user.jpg", id:"user_img_prev", :size => '220x220' %>
         <% end %>
       </div>
       <%= f.file_field :image, class: "image", style: "display:none;", id: "user_file"%>

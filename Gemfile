@@ -74,3 +74,5 @@ gem 'jquery-rails'
 gem 'kaminari'
 
 gem 'rails-i18n'
+
+# gem 'letter_opener_web'

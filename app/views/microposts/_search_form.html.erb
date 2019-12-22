@@ -4,12 +4,10 @@
       <%= f.label :content, 'キーワード', {class: 'search_name'} %>
       <%= f.search_field :content_cont, placeholder:" ミクロ経済学", class:'search_field'%>
     </p>
-    <p>
-      <%= f.label :info, '検索タグ', {class: 'search_tag'}  %>
-      <%= f.radio_button :info_eq, '', {:checked => true} %>指定なし
-      <%= f.radio_button :info_eq, 1 %>楽単
-      <%= f.radio_button :info_eq, 2 %>講義
-      <%= f.radio_button :info_eq, 3 %>試験
+
+    <p><b class="search_name pr-3">検索タグ</b>
+      <%= f.select :info_eq, [['楽単情報'], ['講義情報'], ['試験情報'], ['ゼミ情報'], ['サークル情報'], ['就活情報'], ['その他']] ,{include_blank: '指定なし　　' } %>
+
     </p>
   <p><%= f.submit "検索する", class:'search_search' %></p>
 </ul>

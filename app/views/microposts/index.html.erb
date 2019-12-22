@@ -11,13 +11,12 @@
           <%= f.text_area :content, class: 'form-control', rows: 5 , placeholder:"来週、開発経済学の中間テストあるらしい！！"%>
         </div>
         <div class="form-group">
-          <%= f.label :info, 'タグ', {class: 'search_tag'}  %>
-          <%= f.radio_button :info, '', {:checked => true} %>指定なし
-          <%= f.radio_button :info, 1 %>楽単
-          <%= f.radio_button :info, 2 %>講義
-          <%= f.radio_button :info, 3 %>試験
+          <p><b class="search_name pr-3">検索タグ</b>
+            <%= f.select :info, [['楽単情報'], ['講義情報'], ['試験情報'], ['ゼミ情報'], ['サークル情報'],['就活情報'], ['その他']] ,{include_blank: '指定なし' } %>
+
+          </p>
         </div>
-        <%= f.submit '投稿する', :style=>"color:white;", class: 'btn btn-warning btn-block' %>
+        <%= f.submit '投稿', :style=>"color:white;", class: 'btn btn-warning btn-block' %>
       <% end %>
     </div>
     </aside>

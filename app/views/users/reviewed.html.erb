@@ -1,9 +1,9 @@
 <div class="col-md-8">
   <ul class="nav nav-tabs nav-justified mb-3">
 
-  <li class="nav-item"><a href="<%= good_path(@user) %>" class="nav-link <%= 'active' if current_page?(good_path(@user)) %>">😊 good <span class="badge badge-secondary"><%= @good %></span></a></li>
-  <li class="nav-item"><a href="<%= normal_path(@user) %>" class="nav-link <%= 'active' if current_page?(normal_path(@user)) %>">🙂 normal <span class="badge badge-secondary"><%= @normal %></span></a></li>
-  <li class="nav-item"><a href="<%= bad_path(@user) %>" class="nav-link <%= 'active' if current_page?(bad_path(@user)) %>">😨 bad <span class="badge badge-secondary"><%= @bad %></span></a></li>
+  <li class="nav-item"><a href="<%= good_path(@user) %>" class="nav-link <%= 'active' if current_page?(good_path(@user)) %>">😊 (良い)<span class="badge badge-secondary"><%= @good %></span></a></li>
+  <li class="nav-item"><a href="<%= normal_path(@user) %>" class="nav-link <%= 'active' if current_page?(normal_path(@user)) %>">🙂 (普通) <span class="badge badge-secondary"><%= @normal %></span></a></li>
+  <li class="nav-item"><a href="<%= bad_path(@user) %>" class="nav-link <%= 'active' if current_page?(bad_path(@user)) %>">😨 (悪い) <span class="badge badge-secondary"><%= @bad %></span></a></li>
   </ul>
 </div>
 
@@ -17,17 +17,17 @@
 <div class="row well col-md-4">
   <li class="review-content-all">
     <p class="review-content-font text-secondary"></p>
-    <div class="review-content">
+    <div class="review-content" style="width: 200px;">
       <span class="text-muted"><%= review.created_at.strftime("%Y年%m月%d日") %></span>
       <p>評価：<%= review.feeling %> </p>
-      <p><%= review.content %></p>
+      <p style="width: 200px;"><%= review.content %></p>
     </div>
   </li>
   <li class="review-product-all">
-    <p class="review-product-font text-secondary">購入商品</p>
+    <p class="review-product-font text-secondary pl-2">購入商品</p>
     <%= link_to review.product do %>
       <div class="">
-        <%= image_tag(review.product.image_url,class:'review-product-image', width: '70px')%>
+        <%= image_tag(review.product.image_url,class:'review-product-image',:size => '80x80')%>
         <p class="review-product-name"><%=  review.product.title %></p>
       </div>
     <% end %>

@@ -5,9 +5,37 @@
   </thead>
   <tbody>
         <tr class="text-center">
-          <%= link_to image_path @product.image  do %>
-            <th><%= image_tag(@product.image.to_s, class:'image',:size => '180x180') %></th>
-          <% end %>
+          <th>
+            <div class="product">
+    					<% if @product.chosen == true && @product.reviews.present? %>
+    					<%= link_to image_path @product.image  do %>
+    					<div class="product_sold">
+                <%= render 'products/review', review: @review %>
+    							<li><%= image_tag(@product.image.to_s, class:'image',:size => '200x200') %></li>
+    							<p> sold out </p>
+
+    					</div>
+    					<% end %>
+    					<% elsif @product.chosen == true && @product.reviews.blank?%>
+    					<%= link_to image_path @product.image  do %>
+    					<div class="product_trading">
+                <%= render 'products/review', review: @review %>
+    							<li><%= image_tag(@product.image.to_s, class:'image',:size => '200x200') %></li>
+    							<p> 取引中 </p>
+
+    					</div>
+    					<% end %>
+    					<% else  @product.chosen == false %>
+            	<div class="product_alive">
+                <%= render 'products/review', review: @review %>
+    							<%= link_to image_path @product.image  do %>
+    								<li><%= image_tag(@product.image.to_s, class:'image',:size => '200x200') %></li>
+    							<% end %>
+
+    					</div>
+    					<% end %>
+            </div>
+          </th>
         </tr>
         <tr>
           <th>　　　講義名： 　<%= @product.lecture %></th>
@@ -29,17 +57,10 @@
     <% if current_user == @product.user %>
       <i class="fa fa-heart not-button-heart"></i>
     <% else %>
-      <% if @isRoom == true && @product.chosen == true %>
-        <i class="fa fa-heart not-button-heart"></i>
-      <% elsif @isRoom == false && @product.chosen == true && @product.reviews.present? %>
-        <i class="fa fa-heart not-button-heart"></i>
-      <% elsif @isRoom == false && @product.chosen == true && @product.reviews.blank?%>
-        <li class="heat"><%= render 'favorites/favorite_button', product: @product %></li>
-      <% else  @product.chosen == false %>
       <li class="heat"><%= render 'favorites/favorite_button', product: @product %></li>
-      <% end %>
     <% end %>
-    <li class="heat-count"><%= @product.favorites.count %></li>
+
+    <li class="heat-count"><b><%= @product.favorites.count %></b></li>
     <li class="price">¥<%= @product.price %></li>
   </ul>
 </div>

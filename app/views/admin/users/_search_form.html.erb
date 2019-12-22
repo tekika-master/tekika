@@ -3,9 +3,10 @@
     <p>
       <%= f.label :name, 'ユーザー名', {class: 'search_name'} %>
       <%= f.search_field :name_cont, placeholder:" 太郎", class:'search_field'%>
+      <%= f.submit "検索", class:'search_search' %>
     </p>
 
-  <p><%= f.submit "検索する", class:'search_search' %></p>
+
 </ul>
 
 

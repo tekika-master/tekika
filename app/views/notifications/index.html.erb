@@ -1,12 +1,14 @@
-<div>
-  <h4 class="sub-title">通知</h4>
+<div class="notifications">
+  <h4 class="sub-title"><b>通知</b></h4>
   <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
   <% if @notifications.exists? %>
     <div class="users-index">
       <%= render @notifications %>
-      <%= paginate @notifications %>
     </div>
   <% else %>
     <p>通知はありません</p>
   <% end %>
+
+
+<%= paginate @notifications %>
 </div>

@@ -27,11 +27,11 @@ class PostsController < ApplicationController
   end
 
   def edit
-     @post = Post.find_by(params[:id])
+     @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find_by(params[:id])
+    @post = Post.find(params[:id])
     if current_user == @post.user
       @post.update(post_params)
         flash[:success] = '商品を編集しました。'
@@ -44,14 +44,14 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    post = Post.find(params[:id])
+    @post = Post.find(params[:id])
     if current_user.admin?
-      post.destroy
+      @post.destroy
       flash[:success] = '過去問を削除しました。'
     redirect_back(fallback_location: root_path)
     else
       if current_user == @post.user
-        post.destroy
+        @post.destroy
         flash[:success] = '過去問を削除しました。'
       redirect_back(fallback_location: root_path)
       end

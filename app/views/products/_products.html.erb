@@ -4,31 +4,28 @@
       <div id="item-list">
       	<div class="product">
 					<% if product.chosen == true && product.reviews.present? %>
+					<%= link_to image_path product.image  do %>
 					<div class="product_sold">
             <%= render 'products/review', review: @review %>
-							<%= image_tag(product.image.to_s, class:'image',:size => '180x180') %>
-						<p> sold out </p>
-
-						<li class="home-price">
-							¥<%= product.price %>
-						</li>
+							<li><%= image_tag(product.image.to_s, class:'image',:size => '190x190') %></li>
+							<p> sold out </p>
+							<li class="home-price">¥<%= product.price %></li>
 					</div>
+					<% end %>
 					<% elsif product.chosen == true && product.reviews.blank?%>
+					<%= link_to image_path product.image  do %>
 					<div class="product_trading">
             <%= render 'products/review', review: @review %>
-
-						<%= image_tag(product.image.to_s, class:'image',:size => '180x180') %>
-						<p> 取引中 </p>
-
-						<li class="home-price">
-							¥<%= product.price %>
-						</li>
+							<li><%= image_tag(product.image.to_s, class:'image',:size => '190x190') %></li>
+							<p> 取引中 </p>
+							<li class="home-price">¥<%= product.price %></li>
 					</div>
+					<% end %>
 					<% else  product.chosen == false %>
         	<div class="product_alive">
             <%= render 'products/review', review: @review %>
 							<%= link_to image_path product.image  do %>
-								<li><%= image_tag(product.image.to_s, class:'image',:size => '180x180') %></li>
+								<li><%= image_tag(product.image.to_s, class:'image',:size => '200x200') %></li>
 							<% end %>
 						<li class="home-price">
 							¥<%= product.price %>
@@ -42,5 +39,5 @@
       </div>
   </div>
   <% end %>
-
+<%= paginate @products %>
 </div>
