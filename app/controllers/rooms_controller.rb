@@ -7,6 +7,7 @@ class RoomsController < ApplicationController
 		@product = Product.find(params[:product_id])
 		@product.chosen = true
 			if @product.save
+				@product.create_purchase_notification_by(current_user)
       	flash[:success] = '商品を購入しました。'
 			end
 		# 商品のIDを前のフォームで引っ張ってくる

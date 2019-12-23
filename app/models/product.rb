@@ -22,7 +22,7 @@ class Product < ApplicationRecord
 
   default_scope -> { order(created_at: :desc) }
 
-  def create_notification_by(current_user)
+  def create_favorite_notification_by(current_user)
       # すでに「いいね」されているか検索
       temp = Notification.where(["visitor_id = ? and visited_id = ? and product_id = ? and action = ? ", current_user.id, user_id, id, 'favorite'])
       # いいねされていない場合のみ、通知レコードを作成
@@ -38,7 +38,9 @@ class Product < ApplicationRecord
         end
         notification.save if notification.valid?
       end
+  end
 
+  def create_review_notification_by(current_user)
       temp = Notification.where(["visitor_id = ? and visited_id = ? and product_id = ? and action = ? ", current_user.id, user_id, id, 'review'])
       # 評価されていない場合のみ、通知レコードを作成
       if temp.blank?
@@ -55,11 +57,28 @@ class Product < ApplicationRecord
       end
     end
 
-    # def self.search(search)
-    #  return Product.all.page(params[:page]).per(3) unless search
-    #  Product.where(['lecture LIKE ?', "%#{search}%"])
-    # end
-    #
+    def create_purchase_notification_by(current_user)
+          notification = current_user.active_notifications.new(
+            product_id:self.id,
+            visited_id:user_id,
+            action: 'purchase'
+          )
+          notification.save if notification.valid?
+    end
+
+    def create_submit_notification_by(current_user)
+          notification = current_user.active_notifications.new(
+            product_id:self.id,
+            visited_id:user_id,
+            action: 'submit'
+          )
+          notification.save if notification.valid?
+    end
+
+    def self.search(search)
+     return Product.all unless search
+     Product.where(['lecture LIKE ?', "%#{search}%"])
+   end
 
 
   def self.search(search) #self.でクラスメソッドとしている
