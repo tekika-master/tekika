@@ -55,9 +55,15 @@
 
   <div class="user-infomation col-sm-8">
     <ul class="nav nav-tabs nav-justified mb-3">
-      <li class="nav-item"><a href="<%= likes_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(likes_user_path(@user)) %>">いいね <span class="badge badge-secondary"><%= @count_likes %></span></a></li>
-      <li class="nav-item"><a href="<%= exhibition_path(@user) %>" class="nav-link <%= 'active' if current_page?(exhibition_path(@user)) %>">出品 <span class="badge badge-secondary"><%=@count_products  %></span></a></li>
-      <li class="nav-item"><a href="<%= evaluates_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(evaluates_user_path(@user)) %>">購入 <span class="badge badge-secondary"><%= @count_evaluates %></span></a></li>
+      <% if current_user == @user %>
+        <li class="nav-item"><a href="<%= likes_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(likes_user_path(@user)) %>">いいね <span class="badge badge-secondary"><%= @count_likes %></span></a></li>
+        <li class="nav-item"><a href="<%= exhibition_path(@user) %>" class="nav-link <%= 'active' if current_page?(exhibition_path(@user)) %>">出品 <span class="badge badge-secondary"><%=@count_products  %></span></a></li>
+        <li class="nav-item"><a href="<%= evaluates_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(evaluates_user_path(@user)) %>">購入 <span class="badge badge-secondary"><%= @count_evaluates %></span></a></li>
+        <li class="nav-item"><a href="<%= microposts_path(@user) %>" class="nav-link <%= 'active' if current_page?(microposts_path(@user)) %>">Tweets <span class="badge badge-secondary"><%= @count_microposts %></span></a></li>
+      <% else %>
+        <li class="nav-item"><a href="<%= exhibition_path(@user) %>" class="nav-link <%= 'active' if current_page?(exhibition_path(@user)) %>">出品 <span class="badge badge-secondary"><%=@count_products  %></span></a></li>
+        <li class="nav-item"><a href="<%= microposts_path(@user) %>" class="nav-link <%= 'active' if current_page?(microposts_path(@user)) %>">Tweets <span class="badge badge-secondary"><%= @count_microposts %></span></a></li>
+      <% end %>
 
     </ul>
      <%= render 'products/evaluates', products: @evaluates %>

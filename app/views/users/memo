@@ -163,3 +163,5 @@ class ProductsController < ApplicationController
   end
 
 end
+
+<li class="nav-item"><a href="<%= problem_path(@user) %>" class="nav-link <%= 'active' if current_page?(problem_path(@user)) %>">過去問 <span class="badge badge-secondary"><%= @count_problems %></span></a></li>
