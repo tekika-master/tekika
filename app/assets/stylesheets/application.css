@@ -863,8 +863,6 @@ font-family :Quicksand, sans-serif;/*Google Font*/
 }
 
 .notification-circle-not{
-  font-size: 21px;
-  top:20px;
+  font-size: 22px;
   color: #D7EEFF;
-  position: absolute;
 }
