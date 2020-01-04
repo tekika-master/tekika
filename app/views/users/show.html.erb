@@ -23,11 +23,11 @@
     <% @bad = 0 %>
     <% @user.products.each do |product| %>
     <% product.reviews.each do |review| %>
-      <% if review.feeling == "good" %>
+      <% if review.feeling == "😊" %>
         <% @good += 1 %>
-      <% elsif review.feeling == "normal" %>
+      <% elsif review.feeling == "🙂" %>
         <% @normal += 1 %>
-      <% elsif review.feeling == "bad"%>
+      <% elsif review.feeling == "😨"%>
         <% @bad += 1 %>
       <% end %>
     <% end %>

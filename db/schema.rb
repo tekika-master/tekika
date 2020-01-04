@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_03_152457) do
+ActiveRecord::Schema.define(version: 2020_01_04_104557) do
 
   create_table "entries", force: :cascade do |t|
     t.integer "user_id"
@@ -55,12 +55,12 @@ ActiveRecord::Schema.define(version: 2020_01_03_152457) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.integer "visited_id"
+    t.integer "visited_id", null: false
     t.integer "purchase_id"
     t.integer "comment_id"
     t.integer "review_id"
-    t.string "action"
-    t.boolean "checked"
+    t.string "action", default: "", null: false
+    t.boolean "checked", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "visitor_id"
@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(version: 2020_01_03_152457) do
     t.integer "favorite_id"
     t.integer "user_id"
     t.integer "room_id"
+    t.index ["comment_id"], name: "index_notifications_on_comment_id"
+    t.index ["visited_id"], name: "index_notifications_on_visited_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -129,6 +131,8 @@ ActiveRecord::Schema.define(version: 2020_01_03_152457) do
     t.string "image"
     t.boolean "admin", default: false
     t.string "year"
+    t.datetime "discarded_at"
+    t.index ["discarded_at"], name: "index_users_on_discarded_at"
   end
 
 end
