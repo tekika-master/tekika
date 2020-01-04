@@ -58,12 +58,18 @@ class Product < ApplicationRecord
     end
 
     def create_purchase_notification_by(current_user)
-          notification = current_user.active_notifications.new(
+          notification_buy = current_user.active_notifications.new(
             product_id:self.id,
             visited_id:user_id,
             action: 'purchase'
           )
-          notification.save if notification.valid?
+          notification_buy.save if notification_buy.valid?
+          notification_own = current_user.active_notifications.new(
+            product_id:self.id,
+            visited_id:current_user.id,
+            action: 'purchase'
+          )
+          notification_own.save if notification_own.valid?
     end
 
     def create_submit_notification_by(current_user)
