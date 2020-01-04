@@ -165,3 +165,16 @@ class ProductsController < ApplicationController
 end
 
 <li class="nav-item"><a href="<%= problem_path(@user) %>" class="nav-link <%= 'active' if current_page?(problem_path(@user)) %>">過去問 <span class="badge badge-secondary"><%= @count_problems %></span></a></li>
+
+<div class="col-md-8">
+  <ul class="nav nav-tabs nav-justified mb-3">
+
+  <li class="nav-item"><a href="<%= good_path(@user) %>" class="nav-link <%= 'active' if current_page?(good_path(@user)) %>">😊 (良い)<span class="badge badge-secondary"><%= @good %></span></a></li>
+  <li class="nav-item"><a href="<%= normal_path(@user) %>" class="nav-link <%= 'active' if current_page?(normal_path(@user)) %>">🙂 (普通) <span class="badge badge-secondary"><%= @normal %></span></a></li>
+  <li class="nav-item"><a href="<%= bad_path(@user) %>" class="nav-link <%= 'active' if current_page?(bad_path(@user)) %>">😨 (悪い) <span class="badge badge-secondary"><%= @bad %></span></a></li>
+  </ul>
+</div>
+
+<% @entries.each do |entry| %>
+  <%= link_to "チャットルーム", room_path(entry.room_id) %>
+<% end %>

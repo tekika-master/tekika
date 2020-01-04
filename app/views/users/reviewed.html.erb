@@ -1,11 +1,5 @@
-<div class="col-md-8">
-  <ul class="nav nav-tabs nav-justified mb-3">
-
-  <li class="nav-item"><a href="<%= good_path(@user) %>" class="nav-link <%= 'active' if current_page?(good_path(@user)) %>">😊 (良い)<span class="badge badge-secondary"><%= @good %></span></a></li>
-  <li class="nav-item"><a href="<%= normal_path(@user) %>" class="nav-link <%= 'active' if current_page?(normal_path(@user)) %>">🙂 (普通) <span class="badge badge-secondary"><%= @normal %></span></a></li>
-  <li class="nav-item"><a href="<%= bad_path(@user) %>" class="nav-link <%= 'active' if current_page?(bad_path(@user)) %>">😨 (悪い) <span class="badge badge-secondary"><%= @bad %></span></a></li>
-  </ul>
-</div>
+<div class="review_well pb-5">
+<p class="reviews-user-font">評価一覧</p>
 
 <% if @reviews.present? %>
   <% @reviews.each do |review| %>
@@ -17,10 +11,10 @@
 <div class="row well col-md-4">
   <li class="review-content-all">
     <p class="review-content-font text-secondary"></p>
-    <div class="review-content" style="width: 200px;">
+    <div class="review-content mb-3" style="width: 200px;">
       <span class="text-muted"><%= review.created_at.strftime("%Y年%m月%d日") %></span>
       <p>評価：<%= review.feeling %> </p>
-      <p style="width: 200px;"><%= review.content %></p>
+      <p style="width: 180px; display: inline-block; word-break: break-all;"><%= review.content %></p>
     </div>
   </li>
   <li class="review-product-all">
@@ -36,3 +30,4 @@
 </div>
 <% end %>
 <% end %>
+</div>

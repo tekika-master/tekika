@@ -4,10 +4,13 @@ class PostsController < ApplicationController
   def index
     @q = Post.ransack(params[:q])
       @posts = @q.result.order(id: :desc).page(params[:page]).per(20)
+     @counts = Post.count
   end
 
   def show
-
+    @q = Post.ransack(params[:q])
+      @posts = @q.result.order(id: :desc).page(params[:page]).per(20)
+     @counts = Post.count
   end
 
   def new

@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.create!(name: "Youhei",
-            email:'soccer.youhei@keio.jp',
-            password:'Youhei0912',
+User.create!(name: "Tekika",
+            email:'tekika@keio.jp',
+            password:'tekika123456789',
             admin: true)
 # Post.create!(image:File.open("./app/assets/images/樋口・経済学2002.jpg") ,
 #              problem: "樋口・経済学",

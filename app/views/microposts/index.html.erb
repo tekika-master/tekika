@@ -1,7 +1,8 @@
 
   <p class="micropost-name">Twitter for Keio</p>
 <div class="micropost row pl-0">
-    <aside class="col-sm-5 ">
+    <aside class="col-sm-5">
+      <!-- <p class="twitter-posting">投稿</p> -->
       <div class="twitter-searching col-md-12">
          <%= render 'microposts/search_form' %>
       </div>
@@ -16,7 +17,7 @@
 
           </p>
         </div>
-        <%= f.submit '投稿', :style=>"color:white;", class: 'btn btn-warning btn-block' %>
+        <%= f.submit '投稿', :style=>"color:white;", class: 'btn btn-primary btn-block' %>
       <% end %>
     </div>
     </aside>

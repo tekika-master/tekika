@@ -8,14 +8,17 @@
                 <tr>
                     <th width=50>id</th>
                     <th width=280>ユーザー名</th>
-                    <th width=300>メールアドレス</th>
+                    <th width=50>学年</th>
+                    <th width=250>メールアドレス</th>
                     <th width=100>退会</th>
+
                 </tr>
 
                 <% @users.each do |user|%>
                 <tr>
                     <td><%= user.id%></td>
                     <td><%= user.name%></td>
+                    <td><%= user.year%></td>
                     <td><%= user.email%></td>
                     <%# <% if user.destroyed_a.nil? %>
                     <% if current_user.admin? && !(current_user == user)%>

@@ -1,5 +1,5 @@
 <div class="notifications">
-  <h4 class="sub-title"><b>通知</b></h4>
+  <h4 class="sub-title mb-3"><b>通知一覧</b></h4>
   <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
   <% if @notifications.exists? %>
     <div class="users-index">
