@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-  delete 'delete', to: 'users#destroy'
+  # delete 'delete', to: 'users#destroy'
 
 
   get 'form', to: 'products#new', as:'form'

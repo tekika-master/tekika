@@ -20,15 +20,13 @@
                     <td><%= user.name%></td>
                     <td><%= user.year%></td>
                     <td><%= user.email%></td>
-                    <%# <% if user.destroyed_a.nil? %>
-                    <% if current_user.admin? && !(current_user == user)%>
+                    <% if current_user == user %>
+                      <td>管理者</td>
+                    <% elsif user.discarded? %>
+                      <td>退会済み</td>
+                    <% elsif user.discarded_at.nil? %>
                       <td><%= link_to "退会", admin_user_path(user), method: :delete, "data-confirm" => "本当に退会させますか？"%> </td>
-                    <% else %>
-                      <td>退会</td>
                     <% end %>
-                    <%# <% else %>
-                      <%# <td> 退会済み </td> %>
-                    <%# <% end %>
                 </tr>
                 <%end%>
             </table>

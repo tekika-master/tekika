@@ -62,7 +62,7 @@ Tekika</a>
               </li>
               <li class="dropdown-divider"></li>
               <li class="dropdown-item">
-                <%= link_to '退会', delete_path, method: :delete, data:{ confirm:"全てのデータが削除されます。本当に退会しますか？"} %>
+                <%= link_to '退会', user_path(current_user), method: :delete, data:{ confirm:"全てのデータが削除されます。本当に退会しますか？"} %>
               </li>
             </ul>
           <% else %>

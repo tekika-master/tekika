@@ -1,5 +1,8 @@
 class User < ApplicationRecord
 
+  include Discard::Model
+  default_scope -> { kept }
+
     mount_uploader :image, ImagesUploader
 
     validates :name, presence: true, length: {maximum: 7 }
