@@ -34,7 +34,7 @@
       <span class="moderate-font"><%= " (#{time_ago_in_words(notification.created_at)}前)" %></span>
 
     <% when 'message' then %>
-      <%= link_to "ルーム", notification.room, style: "font-weight: bold;" %>
+      <%= link_to "ルーム", room_path(notification.room.id), style: "font-weight: bold;" %>
       <%= "でメッセージを送りました"%>
       <span class="moderate-font"><%= " (#{time_ago_in_words(notification.created_at)}前)" %></span>
     <% end %>

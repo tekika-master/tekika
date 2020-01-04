@@ -34,7 +34,7 @@ Tekika</a>
               <%= link_to '掲示板', twitter_path, class: 'nav-link' %>
             </li>
             <%# <li class="nav-item "> %>
-              <%# <%= link_to '過去問', searching_path, class: 'nav-link' %> 
+              <%# <%= link_to '過去問', searching_path, class: 'nav-link' %>
             <%# </li> %>
             <li class="nav-item ">
               <%= link_to '新規出品', form_path, class: 'nav-link' %>
@@ -62,7 +62,7 @@ Tekika</a>
               </li>
               <li class="dropdown-divider"></li>
               <li class="dropdown-item">
-                <%= link_to '退会', delete_path, method: :delete, data:{ confirm:"全てのデータが削除されます。本当に退会しますか？"} %>
+                <%= link_to '退会', user_path(current_user), method: :delete, data:{ confirm:"全てのデータが削除されます。本当に退会しますか？"} %>
               </li>
             </ul>
           <% else %>

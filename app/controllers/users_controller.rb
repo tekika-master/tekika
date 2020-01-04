@@ -34,18 +34,14 @@ before_action :require_user_logged_in, only: [:index, :show, :exhibition,
 
   def destroy
     @user = User.find_by(id: params[:id])
-    @products = Product.find_by(user_id: params[:id])
-
-    if @products.nil?
-       current_user.destroy
-      redirect_to("/")
-      flash[:success] = 'ユーザーを削除しました。'
-    else
-      @products.destroy
-      current_user.destroy
-      redirect_to("/")
-      flash[:success] = 'ユーザーを削除しました。'
+    if @user.products.present?
+      @user.products.each do |product|
+        product.destroy
+      end
     end
+    @user.discard
+    redirect_to("/")
+    flash[:success] = '退会しました'
   end
 
 

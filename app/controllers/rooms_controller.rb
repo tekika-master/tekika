@@ -27,10 +27,11 @@ class RoomsController < ApplicationController
   def show
 		# @user = @product.user
     @room = Room.find(params[:id])
+		@product = @room.product
     @messages = Message.where(room_id: params[:id])
     @message = Message.new
     @entries = @room.entries
-		@product = Product.find_by(params[:id])
+
 		@user = @product.user
     # 	if Entry.where(:user_id => current_user.id, :room_id => @room.id).present?
     #   	@messages = @room.messages

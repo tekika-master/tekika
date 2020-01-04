@@ -75,4 +75,5 @@ gem 'kaminari'
 
 gem 'rails-i18n'
 
+gem 'discard', '~> 1.0'
 # gem 'letter_opener_web'

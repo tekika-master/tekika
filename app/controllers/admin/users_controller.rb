@@ -3,14 +3,17 @@ class Admin::UsersController < ApplicationController
 
   def index
     # @users = User.all.order(created_at: :desc)
-    @q = User.ransack(params[:q])
-      @users = @q.result.order(id: :desc).page(params[:page]).per(20)
+    @q = User.with_discarded.ransack(params[:q])
+    @users = @q.result.order(id: :desc).page(params[:page]).per(20)
     @counts = User.count
   end
 
   def destroy
     user = User.find(params[:id])
-      user.destroy
+    user.products.each do |product|
+      product.destroy
+    end
+      user.discard
       flash[:notice] = "退会させました"
       redirect_to admin_users_path
   end
