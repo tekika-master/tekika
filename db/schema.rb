@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_04_104557) do
+ActiveRecord::Schema.define(version: 2020_01_03_152457) do
 
   create_table "entries", force: :cascade do |t|
     t.integer "user_id"
@@ -128,8 +128,7 @@ ActiveRecord::Schema.define(version: 2020_01_04_104557) do
     t.datetime "updated_at", null: false
     t.string "image"
     t.boolean "admin", default: false
-    t.datetime "discarded_at"
-    t.index ["discarded_at"], name: "index_users_on_discarded_at"
+    t.string "year"
   end
 
 end

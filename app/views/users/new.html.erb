@@ -11,6 +11,11 @@
 				<%= f.text_field :name, class: 'form-control' ,placeholder:"taro" %>
 			</div>
 			<div class="form-group">
+				<p>学年
+					　<%= f.select :year, [['１年'], ['２年'], ['３年'], ['４年'], ['既卒']]  %>
+				</p>
+			</div>
+			<div class="form-group">
 				<%= f.label :email, 'Email（Email of Keio University）' %>
 				<%= f.email_field :email, class: 'form-control',placeholder:"taro@keio.jp" %>
 			</div>

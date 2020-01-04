@@ -9,9 +9,9 @@
     <li>😨</li>
   </ul>
   <ul class="star-number pl-0">
-    <label for="good"><%= f.radio_button :feeling, "good" %></label>
-    <label for="normal"><%= f.radio_button :feeling, "normal" %></label>
-    <label for="bad"><%= f.radio_button :feeling, "bad" %></label>
+    <label for="good"><%= f.radio_button :feeling, "😊" %></label>
+    <label for="normal"><%= f.radio_button :feeling, "🙂" %></label>
+    <label for="bad"><%= f.radio_button :feeling, "😨" %></label>
   </ul>
 
 </div>
@@ -19,7 +19,7 @@
 
 
   <div class="form-group row">
-    <%= f.label :content, 'コメント ', class:'name col-md-3 col-form-label' %>
+    <%= f.label :content, 'コメント ', class:'comments col-md-3 col-form-label' %>
     <div class="col-md-9">
       <%= f.text_area :content, class: "form-control", rows: "8",
         placeholder:'コメントがなくても、評価のみで投稿できます。' %>
@@ -27,7 +27,7 @@
   </div>
   <div class="form-group row justify-content-end">
     <div class="col-md-9">
-      <%= f.submit '投稿する', :style=>"color:white;", class:"review_post btn btn-warning btn_star" %>
+      <%= f.submit '投稿する', :style=>"color:white;", class:"review_post btn btn-primary btn_star" %>
     </div>
   </div>
 

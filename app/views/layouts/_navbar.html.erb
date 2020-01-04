@@ -33,9 +33,9 @@ Tekika</a>
             <li class="nav-item ">
               <%= link_to '掲示板', twitter_path, class: 'nav-link' %>
             </li>
-            <%# <li class="nav-item "> %>
-              <%# <%= link_to '過去問', searching_path, class: 'nav-link' %>
-            <%# </li> %>
+            <li class="nav-item ">
+              <%= link_to '過去問', searching_path, class: 'nav-link' %>
+            </li>
             <li class="nav-item ">
               <%= link_to '新規出品', form_path, class: 'nav-link' %>
             </li>
@@ -52,10 +52,10 @@ Tekika</a>
               <li class="dropdown-item">
                 <%= link_to 'マイページ', user_path(current_user) %>
               </li>
-              <%# <li class="dropdown-divider"></li> %>
-              <%# <li class="dropdown-item"> %>
-                <%# <%= link_to 'ツイート・過去問', microposts_path(current_user) %>
-              <%# </li> %>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item">
+                <%= link_to 'ツイート・過去問', microposts_path(current_user) %>
+              </li>
               <li class="dropdown-divider"></li>
               <li class="dropdown-item">
                 <%= link_to 'ログアウト', logout_path, method: :delete %>

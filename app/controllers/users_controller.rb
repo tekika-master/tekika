@@ -129,6 +129,6 @@ end
   private
 
   def user_params
-    params.require(:user).permit(:image, :name, :email, :password, :password_confirmation, :intro)
+    params.require(:user).permit(:image, :name, :email, :password, :password_confirmation, :intro, :year)
   end
 end

@@ -3,39 +3,43 @@
 	<div class="col-md-3 text-center">
       <div id="item-list">
 				<div class="product">
-					<% if product.chosen == true && product.reviews.present? %>
-          <%= link_to image_path product.image  do %>
+					<% notification = product.notifications.find_by(action: 'submit') %>
+					<% if product.chosen == true && notification.present? %>
 					<div class="product_sold">
-            <%= render 'products/review', review: @review %>
-              <li><%= image_tag(product.image.to_s, class:'image',:size => '160x160') %></li>
-              <p> sold out </p>
-              <li class="home-price">¥<%= product.price %></li>
+						<%= render 'products/review', review: @review %>
+							<%= image_tag(product.image.to_s, class:'image',:size => '180x180') %>
+						<p> sold out </p>
+
+						<li class="home-price">
+							¥<%= product.price %>
+						</li>
 					</div>
-          <% end %>
-					<% elsif product.chosen == true && product.reviews.blank?%>
-          <%= link_to image_path product.image  do %>
+					<% elsif product.chosen == true && notification.blank?%>
 					<div class="product_trading">
-            <%= render 'products/review', review: @review %>
-              <li><%= image_tag(product.image.to_s, class:'image',:size => '160x160') %></li>
-              <p> 取引中 </p>
-              <li class="home-price">¥<%= product.price %></li>
+						<%= render 'products/review', review: @review %>
+
+						<%= image_tag(product.image.to_s, class:'image',:size => '180x180') %>
+						<p> 取引中 </p>
+
+						<li class="home-price">
+							¥<%= product.price %>
+						</li>
 					</div>
-          <% end %>
 					<% else  product.chosen == false %>
-        	<div class="product_alive">
-            <%= render 'products/review', review: @review %>
-            <%= link_to image_path product.image  do %>
-              <li><%= image_tag(product.image.to_s, class:'image',:size => '160x160') %></li>
-            <% end %>
+					<div class="product_alive">
+						<%= render 'products/review', review: @review %>
+							<%= link_to image_path product.image  do %>
+								<li><%= image_tag(product.image.to_s, class:'image',:size => '180x180') %></li>
+							<% end %>
 						<li class="home-price">
 							¥<%= product.price %>
 						</li>
 					</div>
 					<% end %>
-        	<li class="home-detail">
-        		<%= link_to "詳細", "/products/#{product.id}", method: :get, class: 'btn btn-primary ' %>
-        		</li>
-        </div>
+					<li class="home-detail">
+						<%= link_to "詳細", "/products/#{product.id}", method: :get, class: 'btn btn-primary ' %>
+						</li>
+				</div>
       </div>
   </div>
   <% end %>
