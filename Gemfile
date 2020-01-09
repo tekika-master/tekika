@@ -63,8 +63,6 @@ gem 'carrierwave'
 
 gem 'ransack'
 
-gem 'rmagick'
-
 gem 'devise'
 
 gem 'ratyrate'
