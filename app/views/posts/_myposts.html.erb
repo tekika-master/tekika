@@ -3,9 +3,7 @@
  <div class="col-md-3 text-center">
     <div id="item-list">
        <div class="item-list">
-         <%= link_to image_path post.image  do %>
-           <li>	<%= image_tag(post.image.to_s, class:'image',:size => '160x160') %></li>
-         <% end %>
+         <li><%= attachment_image_tag post, :figure, :size => '160x160' ,class:'image', id:"post_img_prev"%></li>
          <li class="paginate"><%= post.problem %></li>
          <li class="post-year"><%= post.year %><h9>年</h9></li>
        </div>

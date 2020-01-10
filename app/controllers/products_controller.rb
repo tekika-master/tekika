@@ -1,7 +1,9 @@
 class ProductsController < ApplicationController
   before_action :require_user_logged_in
-  # before_action :correct_user, only: [:destroy]
-  # before_action :admin_user, only: [:edit, :destroy, :update]
+
+  def index
+    @products = Product.search(params[:search]).page(params[:page]).per(20)
+  end
 
   def cancel
     @product = Product.find(params[:product_id])
@@ -25,19 +27,6 @@ class ProductsController < ApplicationController
     @review = Review.find(params[:review_id])
     @review.save
   end
-
-  # def index
-  #   @q = Product.ransack(params[:q])
-  #     @products = @q.result.order(id: :desc).page(params[:page]).per(20)
-  #
-  #
-  # end
-
-  def index
-    @products = Product.search(params[:search]).page(params[:page]).per(20)
-  end
-
-
 
   def edit
      @product = Product.find(params[:id])
@@ -128,27 +117,8 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:image, :title, :price, :lecture, :university, :place, :writing)
+    params.require(:product).permit(:picture, :title, :price, :lecture, :university, :place, :writing)
   end
-
-  # def correct_user
-  #   @product = current_user.products.find_by(id: params[:id])
-  #   unless @product
-  #     redirect_to root_url
-  #   end
-
-    # if current_user == @product.user
-    #     @product = current_user.products.find_by(id: params[:id])
-    # else current_user.admin?
-    #   @product.update(product_params)
-    #   flash[:success] = '商品を編集しました。'
-    #   redirect_to root_url
-    # end
-  # end
-
-  # def admin_user
-  #   redirect_to(root_url) unless current_user.admin?
-  # end
 
   def picture_size
       if picture.size > 5.megabytes

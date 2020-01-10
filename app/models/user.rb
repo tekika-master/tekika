@@ -2,15 +2,13 @@ class User < ApplicationRecord
 
   include Discard::Model
   default_scope -> { kept }
-
-    mount_uploader :image, ImagesUploader
-
-    validates :name, presence: true, length: {maximum: 7 }
-    validates :email, presence: true, length: {maximum: 50 },
+  attachment :profile
+  validates :name, presence: true, length: {maximum: 7 }
+  validates :email, presence: true, length: {maximum: 50 },
                       format: {with: /\A[\w+\-.]+@[keio]+\.[jp]+\z/i },
                       uniqueness: {case_sensitive: false}
 
-has_secure_password
+   has_secure_password
    has_many :products
    has_many :messages, dependent: :destroy
    has_many :entries, dependent: :destroy
@@ -29,10 +27,6 @@ has_secure_password
    has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
    has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
    has_many :notifications, dependent: :destroy
-
-   # devise :database_authenticatable, :registerable,
-   #       :recoverable, :rememberable, :trackable, :validatable, :confirmable #最後のやつを追加
-
 
   def favorite(product)
       self.favorites.find_or_create_by(product_id: product.id)
@@ -58,6 +52,4 @@ has_secure_password
   def feed_products
     Product.all
   end
-
-
 end

@@ -1,4 +1,5 @@
 class Micropost < ApplicationRecord
+  attachment :profile
   belongs_to :user
 
   validates :content, presence: true, length: { maximum: 200 }

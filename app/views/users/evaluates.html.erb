@@ -1,22 +1,20 @@
 <div class="row">
   <div class="col-sm-2.5 pl-5  ml-2">
-
     <div class="card">
       <div class="card-header">
         <h3 class="card-title"><%= @user.name %></h3>
       </div>
       <div class="card-body">
-        <% if @user.image? %>
-          <%= image_tag(@user.image.url,class:'user-image',:size => '220x220')  %>
+        <% if @user.profile.present? %>
+          <%= attachment_image_tag @user, :profile, id:"user_img_prev", :size => '220x220' ,class:'user-image'%>
         <% else %>
-        <%= image_tag "/assets/user.jpg",class:'user-image', :size => '220x220' %>
+          <%= image_tag "/assets/user.jpg", id:"user_img_prev", :size => '220x220',class:'user-image' %>
         <% end %>
       </div>
     </div>
     <div class="card-footer", style="width: 262px; display: inline-block; word-break: break-all;">
       <p><%= @user.intro %></p>
     </div>
-
     <% @good = 0 %>
     <% @normal = 0 %>
     <% @bad = 0 %>
@@ -31,34 +29,27 @@
       <% end %>
     <% end %>
     <% end %>
-
     <div class="user-star pl-2">
       <li>😊</li>
       <li>🙂</li>
       <li>😨</li>
     </div>
     <div class="star-number pl-2">
-
     <li><%= link_to @good, reviewed_path(id: @user.id) %></li>
     <li><%= link_to @normal, reviewed_path(id: @user.id) %></li>
     <li><%= link_to @bad, reviewed_path(id: @user.id) %></li>
     </div>
-
-
     <% if current_user == @user %>
         <li class="profileedit pl-2">
           <%= link_to 'プロフィールを編集する', edit_user_path(@user), :style=>"color:white;" ,class: 'btn btn-lg btn-primary' %>
         </li>
     <% end %>
-
   </div>
-
   <div class="user-infomation col-sm-8">
     <ul class="nav nav-tabs nav-justified mb-3">
       <li class="nav-item"><a href="<%= likes_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(likes_user_path(@user)) %>">いいね <span class="badge badge-secondary"><%= @count_likes %></span></a></li>
       <li class="nav-item"><a href="<%= exhibition_path(@user) %>" class="nav-link <%= 'active' if current_page?(exhibition_path(@user)) %>">出品 <span class="badge badge-secondary"><%=@count_products  %></span></a></li>
       <li class="nav-item"><a href="<%= evaluates_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(evaluates_user_path(@user)) %>">購入 <span class="badge badge-secondary"><%= @count_evaluates %></span></a></li>
-
     </ul>
      <%= render 'products/evaluates', products: @evaluates %>
   </div>

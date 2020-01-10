@@ -1,9 +1,5 @@
 class MicropostsController < ApplicationController
   before_action :require_user_logged_in
-  # before_action :correct_user, only: [:destroy]
-
-
-
   def index
     @q = Micropost.ransack(params[:q])
       @microposts = @q.result.order(id: :desc).page(params[:page]).per(15)
@@ -50,34 +46,14 @@ class MicropostsController < ApplicationController
   def update
   end
 
-
-
   def search
     @products = Micropost.search(params[:search])
     @microposts = current_user.microposts.order(id: :desc).page(params[:page])
-
   end
-
-
-
-  # def set_search
-  #      @w = Micropost.ransack(params[:q])
-  # end
 
   private
 
   def micropost_params
     params.require(:micropost).permit(:content, :info)
   end
-
-  # def search_params
-  #   params.require(:w).permit(:easy, :info, :exam, :other)
-  # end
-
- #  def correct_user
- #   @micropost = current_user.microposts.find_by(id: params[:id])
- #   unless @micropost
- #     redirect_to root_url
- #   end
- # end
 end

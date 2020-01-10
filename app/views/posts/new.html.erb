@@ -1,18 +1,16 @@
 <div class="row m-2">
   <div class="col-sm-6 offset-sm-3">
-    <%= form_for @post, url:posts_path do |f| %>
-	    <div class="form-group">
-        <%= f.label :image , '過去問画像', {class: 'name'} %>
-
-        <div id="img" onClick="$('#post_file').click()" >
-
-          <% if @post.image? %>
-            <%= image_tag @post.image.url, id:"post_img_prev", :size => '180x180' %>
+    <%= form_for (@post) do |f| %>
+      <div class="form-group">
+        <%= f.label :figure, '商品画像', {class: 'name'} %>
+        <div id="img" onClick="$('#post_file').click()">
+          <% if @post.figure.present? %>
+            <%= attachment_image_tag @post, :figure, id:"post_img_prev", :size => '180x180' %>
           <% else %>
             <%= image_tag "/assets/noimage.png", id:"post_img_prev", :size => '180x180' %>
           <% end %>
         </div>
-        <%= f.file_field :image, class: "image", style: "display:none;", id: "post_file"%>
+        <%= f.attachment_field :figure, class: "image", style: "display:none;", id: "post_file"%>
         <script type="text/javascript">
           $(function() {
             function readURL(input) {
@@ -30,31 +28,22 @@
           });
         </script>
       </div>
-
-
       <div class="form-group">
       <%= f.label :problem, '教授・講義名', {class: 'name'} %>
       <%= f.text_area :problem, class:'form-control', placeholder:" 須田・ミクロ経済学" %>
       </div>
-
       <div class="form-group">
       <%= f.label :year, '年度', {class: 'name'} %>（４文字以下）
       <%= f.text_area :year, class:'form-control', placeholder:"2019" %>
       </div>
-
-        <div class="post_form-group1"><b class="pr-4">学部</b>
-          <%= f.select :department, [['法学部'], ['経済学部'], ['商学部'], ['文学部'], ['理工学部'], ['SFC'], ['その他'], ['学部共通']] ,{include_blank: '選択してください' } %>
-        </div>
-
-
+      <div class="post_form-group1"><b class="pr-4">学部</b>
+        <%= f.select :department, [['法学部'], ['経済学部'], ['商学部'], ['文学部'], ['理工学部'], ['SFC'], ['その他'], ['学部共通']] ,{include_blank: '選択してください' } %>
+      </div>
       <div class="post_form-group2"><b class="pr-4">キャンパス</b>
         <%= f.select :campus, [['日吉'], ['三田'], ['矢上'], ['湘南藤沢'], ['その他']] ,{include_blank: '選択してください' } %>
-
       </div>
 
-
       <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
-
     <% end %>
   </div>
 </div>

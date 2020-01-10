@@ -2,7 +2,6 @@ class FavoritesController < ApplicationController
   before_action :require_user_logged_in
 
   def create
-    # favorite = current_user.active_favorite.new(product_id:params[:product_id])
     product = Product.find(params[:product_id])
     product.create_favorite_notification_by(current_user)
     current_user.favorite(product)
@@ -11,14 +10,6 @@ class FavoritesController < ApplicationController
         format.html { redirect_to request.referrer || root_url }
         format.js
     end
-    # favorite=current_user.active_favorite.new(product_id:params[:product_id])
-    # favorite.save
-    # @product=Product.find(params[:product_id])
-    # @product.create_notification_by(current_user)
-    # respond_to do |format|
-    #   format.html { redirect_to request.referrer || root_url }
-    #   format.js
-    # end
   end
 
   def destroy

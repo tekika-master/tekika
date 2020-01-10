@@ -1,20 +1,32 @@
 <div class="row">
   <div class="col-sm-6 offset-sm-3">
-    <%= form_with(model: @product, local: true) do |f| %>
-
-	    <div class="form-group">
-        <%= f.label :image, '商品画像' , {class: 'name'}%>
-
-        <div id="img" onClick="$('#file').click()" >
-
-          <% if @product.image? %>
-            <%= image_tag @product.image.url, :size => '180x180' %>
+    <%= form_for (@product) do |f| %>
+      <div class="form-group">
+        <%= f.label :picture, '商品画像', {class: 'name'} %>
+        <div id="img" onClick="$('#product_file').click()">
+          <% if @product.picture.present? %>
+            <%= attachment_image_tag @product, :picture, id:"product_img_prev", :size => '180x180' %>
           <% else %>
-            <!-- <i class="fas fa-image"></i> -->
-            <!-- <i class="fas fa-file-upload add"></i> -->
+            <%= image_tag "/assets/noimage.png", id:"product_img_prev", :size => '180x180' %>
           <% end %>
         </div>
-        <%= f.file_field :image, class: "image", style: "display:none;", id: "file"%>
+        <%= f.attachment_field :picture, class: "image", style: "display:none;", id: "product_file"%>
+        <script type="text/javascript">
+          $(function() {
+            function readURL(input) {
+              if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                  $('#product_img_prev').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+              }
+            }
+            $("#product_file").change(function() {
+              readURL(this);
+            });
+          });
+        </script>
       </div>
       <div class="form-group">
       <%= f.label :title, '教科書名', {class: 'name'} %>

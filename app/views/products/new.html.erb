@@ -1,16 +1,16 @@
 <div class="row m-2">
   <div class="col-sm-6 offset-sm-3">
-    <%= form_for @product, url:products_path do |f| %>
+    <%= form_for (@product) do |f| %>
       <div class="form-group">
-        <%= f.label :image, '商品画像' , {class: 'name'}%>
-        <div id="img" onClick="$('#product_file').click()" >
-          <% if @product.image? %>
-            <%= image_tag @product.image.url, id:"product_img_prev", :size => '180x180' %>
+        <%= f.label :picture, '商品画像', {class: 'name'} %>
+        <div id="img" onClick="$('#product_file').click()">
+          <% if @product.picture.present? %>
+            <%= attachment_image_tag @product, :picture, id:"product_img_prev", :size => '180x180' %>
           <% else %>
             <%= image_tag "/assets/noimage.png", id:"product_img_prev", :size => '180x180' %>
           <% end %>
         </div>
-        <%= f.file_field :image, class: "image", style: "display:none;", id: "product_file"%>
+        <%= f.attachment_field :picture, class: "image", style: "display:none;", id: "product_file"%>
         <script type="text/javascript">
           $(function() {
             function readURL(input) {
