@@ -25,7 +25,9 @@
 					<% else  product.chosen == false %>
         	<div class="product_alive">
             <%= render 'products/review', review: @review %>
-								<%= attachment_image_tag product, :picture, :size => '180x180' ,class:'image', id:"product_img_prev"%>
+						<%= link_to @product.picture, "data-lightbox" => @product.picture do %>
+							<%= attachment_image_tag product, :picture, :size => '180x180' ,class:'image', id:"product_img_prev"%>
+						<% end %>
 						<li class="home-price">
 							¥<%= product.price %>
 						</li>
