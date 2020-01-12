@@ -1,6 +1,6 @@
 <div class="row m-2">
   <div class="col-sm-6 offset-sm-3">
-    <%= form_with(model: @post, local: true) do |f| %>
+    <%= form_for(@post) do |f| %>
       <div class="form-group">
         <%= f.label :figure, '商品画像', {class: 'name'} %>
         <div id="img" onClick="$('#post_file').click()">
