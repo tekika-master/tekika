@@ -44,11 +44,6 @@ Rails.application.routes.draw do
 
   get 'reviewed', to: 'users#reviewed', as:'reviewed'
 
-  get 'post', to: 'posts#new'
-  patch 'post', to: 'posts#update'
-  get 'posts/edit', to: 'posts#edit'
-  delete 'posts/:id/destroy', to: 'posts#destroy'
-
   get 'postsearching', to: 'microposts#index'
 
   patch 'cancel', to: 'products#cancel', as:'cancel'
@@ -72,8 +67,6 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show, :create, :new, :destroy, :edit, :update]
 
    resources :notifications, only: :index
-
-  resources :post
 
   resources :posts
 
