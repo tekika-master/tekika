@@ -2,7 +2,7 @@
     <% microposts.each do |micropost| %>
       <div class="microposts-line">
           <div class="twitter-user">
-            <% if @micropost.user.profile.present? %>
+            <% if micropost.user.profile.present? %>
               <%= attachment_image_tag micropost.user, :profile, id:"user_img_prev",class:'user-twitter-image',:size => '70x70' %>
             <% else %>
               <%= image_tag "/assets/user.jpg", id:"user_img_prev",class:'user-twitter-image',:size => '70x70'%>
@@ -10,7 +10,7 @@
           </div>
           <div class="twitter-body", style="width: 75%; display: inline-block; word-break: break-all;">
           <div>
-            <%= link_to @micropost.user.name, user_path(@micropost.user) %>
+            <%= link_to micropost.user.name, user_path(micropost.user) %>
               <span class="text-muted">
                 <%= micropost.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
               </span>
@@ -30,5 +30,5 @@
           </div>
       </div>
     <% end %>
-    <%= paginate @microposts %>
+    <%= paginate microposts %>
 </ul>
