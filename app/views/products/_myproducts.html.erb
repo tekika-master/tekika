@@ -7,7 +7,7 @@
 					<% if product.chosen == true && notification.present? %>
 					<div class="product_sold">
             <%= render 'products/review', review: @review %>
-						<%= attachment_image_tag product, :picture, :size => '180x180' ,class:'image', id:"product_img_prev"%>
+						<%= attachment_image_tag product, :picture, :size => '180x180' ,class:'image fullscreen-image', id:"product_img_prev"%>
 						<p> sold out </p>
 						<li class="home-price">
 							¥<%= product.price %>
@@ -16,7 +16,7 @@
 					<% elsif product.chosen == true && notification.blank?%>
 					<div class="product_trading">
             <%= render 'products/review', review: @review %>
-						<%= attachment_image_tag product, :picture, :size => '180x180' ,class:'image', id:"product_img_prev"%>
+						<%= attachment_image_tag product, :picture, :size => '180x180' ,class:'image fullscreen-image', id:"product_img_prev"%>
 						<p> 取引中 </p>
 						<li class="home-price">
 							¥<%= product.price %>
@@ -25,7 +25,7 @@
 					<% else  product.chosen == false %>
         	<div class="product_alive">
             <%= render 'products/review', review: @review %>
-							<li><%= attachment_image_tag product, :picture, :size => '180x180' ,class:'image', id:"product_img_prev"%></li>
+							<li><%= attachment_image_tag product, :picture, :size => '180x180' ,class:'image fullscreen-image', id:"product_img_prev"%></li>
 						<li class="home-price">
 							¥<%= product.price %>
 						</li>

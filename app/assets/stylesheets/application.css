@@ -1,4 +1,4 @@
-git /*
+/*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -869,5 +869,5 @@ z-index: 2;
 .fullscreen-image {
    cursor: url("images/plus_cursor.png"), pointer; /* マウスポインタを指定 */
    display: inline-block;   /* 横方向に並べる指定 */
-   margin: 0px 5px 5px 0px; /* 周囲の余白量(右と下に5pxずつ) */
+   /* margin: 0px 5px 5px 0px; /* 周囲の余白量(右と下に5pxずつ) */
 }
