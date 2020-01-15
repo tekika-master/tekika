@@ -7,7 +7,7 @@
           <% if @post.figure.present? %>
             <%= attachment_image_tag @post, :figure, id:"post_img_prev", :size => '180x180' %>
           <% else %>
-            <%= image_tag "/public/images/noimage.png", id:"post_img_prev", :size => '180x180' %>
+            <%= image_tag "/public/noimage.png", id:"post_img_prev", :size => '180x180' %>
           <% end %>
         </div>
         <%= f.attachment_field :figure, class: "image", style: "display:none;", id: "post_file"%>
