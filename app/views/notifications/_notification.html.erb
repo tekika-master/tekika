@@ -6,7 +6,7 @@
   <% if visitor.profile.present? %>
     <%= attachment_image_tag visitor, :profile, id:"user_img_prev", :size => '30x30' ,class:'user-image'%>
   <% else %>
-    <%= image_tag "/assets/images/user.jpg", id:"user_img_prev", :size => '30x30',class:'user-image' %>
+    <%= image_tag "/public/images/user.jpg", id:"user_img_prev", :size => '30x30',class:'user-image' %>
   <% end %>
     <%= visitor.name %>
   <% end %>

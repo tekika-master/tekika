@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-sm-2.5 pl-5  ml-2">
+  <div class="col-sm-2.5 pl-5  ml-3">
     <div class="card">
       <div class="card-header">
         <h3 class="card-title"><%= @user.name %></h3>
@@ -8,7 +8,7 @@
         <% if @user.profile.present? %>
           <%= attachment_image_tag @user, :profile, id:"user_img_prev", :size => '220x220' ,class:'user-image fullscreen-image'%>
         <% else %>
-          <%= image_tag "/assets/images/user.jpg", id:"user_img_prev", :size => '220x220',class:'user-image' %>
+          <%= image_tag "/public/images/user.jpg", id:"user_img_prev", :size => '220x220',class:'user-image' %>
         <% end %>
       </div>
     </div>
