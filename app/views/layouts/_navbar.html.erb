@@ -14,7 +14,7 @@ Tekika</a>
             <%= form_tag(search_path, :method => 'get') do %>
               <p>
                 <%= text_field_tag :search, params[:search] , placeholder:"  ミクロ経済学", class:'navbar_search_field'%>
-                <%= submit_tag "検索", :name => nil, class:'navbar_search_search' %>
+                <%= attachment_submit_tag "検索", :name => nil, class:'navbar_search_search' %>
               </p>
             <% end %>
             </li>
