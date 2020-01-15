@@ -211,14 +211,13 @@ GEM
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
-<<<<<<< HEAD
-=======
+
     rest-client (2.1.0)
       http-accept (>= 1.7.0, < 2.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
->>>>>>> 8c865b1f13868244576d13da4ada3e8e2df057ae
+
     ruby-vips (2.0.16)
       ffi (~> 1.9)
     ruby2_keywords (0.0.2)
@@ -300,11 +299,10 @@ DEPENDENCIES
   rails-i18n
   ransack
   ratyrate
-<<<<<<< HEAD
-=======
+
   refile!
   refile-mini_magick
->>>>>>> 8c865b1f13868244576d13da4ada3e8e2df057ae
+
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
