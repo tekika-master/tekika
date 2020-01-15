@@ -76,10 +76,10 @@ gem 'rails-i18n'
 gem 'discard', '~> 1.0'
 # gem 'letter_opener_web'
 # gem "refile", require: "refile/rails", github: 'manfe/refile'
-gem ' refile ' , github: ' refile/refile ' , require: ' refile/rails '
+gem 'refile' , github:'refile/refile' , require: 'refile/rails'
 # gem ' refile-mini_magick ' , github: ' refile/refile-mini_magick ' , branch: ' master '
-gem ' refile-mini_magick ' , github: ' refile/refile-mini_magick '
-gem ' sinatra ' , github: ' sinatra/sinatra ' , branch: ' master '
+gem 'refile-mini_magick' , github: 'refile/refile-mini_magick'
+gem 'sinatra' , github: 'sinatra/sinatra' , branch: 'master'
 
 group :production do
   gem 'mysql2'
