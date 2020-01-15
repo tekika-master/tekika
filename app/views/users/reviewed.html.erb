@@ -1,4 +1,5 @@
 <div class="review_well pb-5">
+  <% if @reviews.exists? %>
     <p class="reviews-user-font">評価一覧</p>
       <% @reviews.each do |review| %>
         <li class="reviews-user-all">
@@ -21,4 +22,6 @@
             </li>
         </div>
       <% end %>
+    <% else %>
+    <p>評価はありません</p>
 </div>
