@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.7'
+ruby '2.5.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
@@ -75,6 +75,8 @@ gem 'rails-i18n'
 
 gem 'discard', '~> 1.0'
 # gem 'letter_opener_web'
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
 
 group :production do
   gem 'mysql2'

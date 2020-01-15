@@ -1,18 +1,13 @@
 <div class="room">
   <h1>取引画面</h1>
 </div>
-
 <div>
 <h4></h4>
 <% @entries.each do |e| %>
   <h5><strong><a href="/users/<%= e.user_id %>"><%= e.user.name%>さん</a></strong></h5>
 <% end %>
 </div>
-
 <hr>
-
-
-
 <% if @messages.present? %>
   <% @messages.each do |m| %>
     <strong><%= m.content %></strong>
@@ -22,8 +17,6 @@
 <% else %>
   <h4 class="text-center"><b>まだメッセージはありません</b></h4>
 <% end %>
-
-
 <%= form_for @message do |f| %>
   <div class="message pt-5">
   <%= f.text_field :content, :placeholder => "メッセージを入力して下さい", class: "form-control", size:"20x10" %>
@@ -38,12 +31,8 @@
       <%= link_to "取引キャンセル", cancel_path(product_id: @room.product_id, room_id: @room.id), method: :patch, :style=>"color:white;", class: 'btn btn-danger btn', data:{ confirm:"この取引をキャンセルしますか？"}%>
     </div>
 <% else %>
-
     <div class="recieve">
       <%= link_to "受け取り完了", new_review_path(product_id: @room.product_id), :style=>"color:white;", class: 'btn btn-warning btn'%>
     </div>
-
 <% end %>
-
-
 <% end %>

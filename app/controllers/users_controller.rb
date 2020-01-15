@@ -111,24 +111,9 @@ before_action :require_user_logged_in, only: [:index, :show, :exhibition,
     end
   end
 end
-
-#   def good
-#     @user = User.find(params[:id])
-#     @reviews = []
-#     @user.products.each do |product|
-#       Review.where(product_id: product.id).each do |review|
-#         @reviews << review
-#       end
-#     def simple_time(time)
-#       time.strftime("%Y-%m-%d　%H:%M　")
-#     end
-#   end
-# end
-
-
   private
 
   def user_params
-    params.require(:user).permit(:image, :name, :email, :password, :password_confirmation, :intro, :year)
+    params.require(:user).permit(:profile, :name, :email, :password, :password_confirmation, :intro, :year)
   end
 end

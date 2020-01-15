@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_04_104557) do
+ActiveRecord::Schema.define(version: 2020_01_10_115044) do
 
   create_table "entries", force: :cascade do |t|
     t.integer "user_id"
@@ -51,10 +51,12 @@ ActiveRecord::Schema.define(version: 2020_01_04_104557) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "profile_id"
     t.index ["user_id"], name: "index_microposts_on_user_id"
   end
 
   create_table "notifications", force: :cascade do |t|
+    t.integer "visitor_id", null: false
     t.integer "visited_id", null: false
     t.integer "purchase_id"
     t.integer "comment_id"
@@ -63,13 +65,13 @@ ActiveRecord::Schema.define(version: 2020_01_04_104557) do
     t.boolean "checked", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "visitor_id"
     t.integer "product_id"
     t.integer "favorite_id"
     t.integer "user_id"
     t.integer "room_id"
     t.index ["comment_id"], name: "index_notifications_on_comment_id"
     t.index ["visited_id"], name: "index_notifications_on_visited_id"
+    t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -81,6 +83,7 @@ ActiveRecord::Schema.define(version: 2020_01_04_104557) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "year"
+    t.string "figure_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -98,6 +101,7 @@ ActiveRecord::Schema.define(version: 2020_01_04_104557) do
     t.string "image"
     t.integer "likes_count"
     t.boolean "chosen", default: false, null: false
+    t.string "picture_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
@@ -132,6 +136,7 @@ ActiveRecord::Schema.define(version: 2020_01_04_104557) do
     t.boolean "admin", default: false
     t.string "year"
     t.datetime "discarded_at"
+    t.string "profile_id"
     t.index ["discarded_at"], name: "index_users_on_discarded_at"
   end
 

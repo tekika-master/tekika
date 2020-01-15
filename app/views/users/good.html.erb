@@ -1,13 +1,10 @@
 <div class="col-md-8">
   <ul class="nav nav-tabs nav-justified mb-3">
-
   <li class="nav-item"><a href="<%= good_path(@user) %>" class="nav-link <%= 'active' if current_page?(good_path(@user)) %>">😊 good <span class="badge badge-secondary"><%= @good %></span></a></li>
   <li class="nav-item"><a href="<%= normal_path(@user) %>" class="nav-link <%= 'active' if current_page?(normal_path(@user)) %>">🙂 normal <span class="badge badge-secondary"><%= @normal %></span></a></li>
   <li class="nav-item"><a href="<%= bad_path(@user) %>" class="nav-link <%= 'active' if current_page?(bad_path(@user)) %>">😨 bad <span class="badge badge-secondary"><%= @bad %></span></a></li>
   </ul>
 </div>
-
-
 <% if @reviews.present? %>
   <% @reviews.each do |review| %>
   <li class="reviews-user-all">
@@ -33,7 +30,6 @@
       </div>
     <% end %>
   </li>
-
 </div>
 <% end %>
 <% end %>

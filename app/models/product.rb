@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
 
-
-  validates :image, presence: true
+  attachment :picture
+  validates_presence_of :picture
   validates :title, presence: true, length: {maximum: 20 }
   validates :price, presence: true, length: {maximum: 6 }
   validates :lecture, presence: true, length: {maximum: 20 }
@@ -11,7 +11,6 @@ class Product < ApplicationRecord
 
   belongs_to :user
   has_many :rooms
-  mount_uploader :image, ImagesUploader
 
   has_many :favorites, dependent: :destroy
 

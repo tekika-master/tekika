@@ -1,22 +1,21 @@
 Rails.application.routes.draw do
   root to: 'toppages#index'
 
-  # mount LetterOpenerWeb::Engine, at: "/letter_opener"
-
-    get 'search', to: 'products#index'
+  get 'search', to: 'products#index'
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
-
-  # delete 'delete', to: 'users#destroy'
-
 
   get 'form', to: 'products#new', as:'form'
 
   get 'products/:id', to: 'products#show'
   patch 'products/:id', to: 'products#update'
   get 'products/:id/edit', to: 'products#edit'
+
+  # get '/posts/:id/edit', to: 'posts#edit'
+  # patch '/posts/:id', to: 'posts#update'
+  # delete '/posts/:id/destroy', to: 'posts#destroy'
 
   get 'buy', to: 'users#index'
 
@@ -25,19 +24,6 @@ Rails.application.routes.draw do
   get 'exhibition/:id', to: 'users#exhibition', as:'exhibition'
 
   get 'problem/:id', to: 'users#problem', as:'problem'
-
-  # get 'microposts/:id', to: 'users#microposts', as:'microposts'
-
-  # get 'micropost/:id', to: 'users#microposts', as:'micropost'
-
-   # to: 'microposts#destroy'
-
-  # get 'micropost/:id', to:'users#microposts'
-  # post 'micropost/:id', to:'users#microposts', as:'micropost'
-
-  # patch 'microposts/:id', to: 'microposts#destroy'
-
-
 
   get 'twitter', to:'microposts#index'
 
@@ -58,8 +44,6 @@ Rails.application.routes.draw do
 
   get 'reviewed', to: 'users#reviewed', as:'reviewed'
 
-  get 'post', to: 'posts#new'
-
   get 'postsearching', to: 'microposts#index'
 
   patch 'cancel', to: 'products#cancel', as:'cancel'
@@ -71,13 +55,6 @@ Rails.application.routes.draw do
   get 'bad', to: 'users#bad'
 
   get 'leave', to: 'admin/users#index', as:'leave'
-
-  # delete 'forced', to: 'admin/users#destroy', as:'forced'
-
-  patch 'posts', to: 'posts#update', as:'posts'
-  get 'posts/edit', to: 'posts#edit'
-  delete 'posts/:id/destroy', to: 'posts#destroy'
-
 
   get 'usersearching', to: 'admin/users#index'
 
@@ -104,14 +81,8 @@ Rails.application.routes.draw do
       get :likes
       get :evaluates
       get :microposts
-      # get :good
     end
   end
-
-  # scope "(:locale)" do
-	# resources :notifications
-  # resources :paginate
-  # end
 
   resources :favorites, only: [:create, :destroy]
 

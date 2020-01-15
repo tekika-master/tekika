@@ -102,7 +102,7 @@ li{
 
 .title{
   text-align: center;
-  font-size: 30px;
+  font-size: 20px;
 
 }
 
@@ -123,18 +123,12 @@ li{
     left: 0;
     right: 0;
     margin: auto;
-
-
   /* 要素を中央に寄せる方法 */
 }
 
 .likes li{
   display: inline-block;
 }
-
-/* .price_likes{
-  float: left;
-} */
 
 .price{
  font-size: 35px;
@@ -151,16 +145,6 @@ li{
 .not-button-heart{
   font-size: 35px;
 }
-/* .likes heat-count{
- font-size: 20px;
- text-align: center;
- display: inline-block;
-}
-
-.likes li{
-  display:inline-block;
-} */
-
 
 .chat{
  text-align: center;
@@ -181,8 +165,21 @@ li{
   color: #fff;
   background: 	#444444;
   font-size:20px;
-  border-radius: 10px 10px 10px 10px;
+  border-radius: 10px;
+  z-index: 3;
 }
+/*
+.home-title{
+  position: absolute;
+  left: 6px;
+  bottom: 145px;
+  width: 170px;
+  color: #fff;
+  background: 	#444444;
+  font-size:15px;
+  border-radius: 15px;
+  z-index: 3;
+} */
 
 .home-detail{
   padding-top:5px;
@@ -197,7 +194,6 @@ li{
 
 
  #img {
-  /* font-size: 15px; */
   margin-top: 10px;
   padding: 5px 8px;
   border: solid 1px #EDBC6C;
@@ -238,7 +234,6 @@ li{
 }
 
 #user_img {
- /* font-size: 15px; */
  margin-top: 10px;
  padding: 5px 8px;
  border: solid 1px #EDBC6C;
@@ -311,20 +306,6 @@ li{
     background-color: #fff; /* 背景色 */
     border: 1px solid 	#DDDDDD; /* 枠線 */
     border-radius: 15px;
-    /* background-color:#FFFFBB; */
-    /* border: solid; */
-    /* width: 300px;
-    margin-left: 100px;
-    left: 40px;
-    margin-bottom:50px; */
-    /* width:330px; */
-    /* display: block;
-    padding-right: 40px;
-    width: 400px;
-    margin: 0 auto;
-    border-radius: 15px 15px 15px 15px; */
-
-
   }
 
 
@@ -333,26 +314,14 @@ li{
 .stars h1{
   font-size: 20px;
   font-weight: bold;
-  /* background-color: #FFFFAA; */
-  /* display: inline-block;
-  margin-top: 30px;
-  margin-left: 50px;
-  padding-left: 10px;
-  padding-right: 7px;
-  border-radius: 15px 15px 15px 15px; */
   color: #777777;
 }
 
 
 .well{
   background-color:#FFFFBB;
-  /* width:80%; */
-  /* margin: 5%  10%; */
   border-radius: 15px;
   position: relative;
-  /* margin-bottom: 20px;
-  margin-left: 1px;
-  width: 100%; */
   top:calc(50% - 50px/2);
   left:calc(15% - 52px/2);
 
@@ -382,9 +351,6 @@ display: inline-block;
 
 }
 
-/* .review-user-image{
-} */
-
 .review-user-name{
   display: inline-block;
 }
@@ -392,10 +358,6 @@ display: inline-block;
 
 .review-content-all{
 display: inline-block;
-}
-
-.review-content-font{
-
 }
 
 .review-content{
@@ -409,9 +371,6 @@ border-radius: 15px;
 .review-content p{
   color: #666666;
 }
-
-
-
 
 .review-product-all{
 display: inline-block;
@@ -429,9 +388,6 @@ border-radius: 20px;
  .review-product-name{
 text-align: center;
  }
-
-
-
 
 .image{
   border-radius: 15px;
@@ -482,20 +438,16 @@ text-align: center;
 
 .post{
   display: inline-block;
-  /* padding-right: 29%; */
   padding-right: 2%;
 }
 
 .cancel{
   display: inline-block;
-  /* padding-left: 30%; */
   padding-right: 2%;
 }
 
 .recieve{
   display: inline-block;
-  /* padding-top: 100px;
-  padding-left: 30%; */
 }
 
 .post_search{
@@ -542,15 +494,8 @@ text-align: center;
   margin: 30px 20px 60px 0;
 }
 
-.twitter-contents{
-}
-
 .twitter-post{
   margin-bottom: 30px;
-}
-
-.twitter-posting{
-
 }
 
 .microposts-line{
@@ -628,7 +573,7 @@ position: absolute;
   position: relative;
 }
 
-.product_sold::before{
+.product_sold::after{
   /* 透過した黒を上から重ねるイメージ */
   background-color: rgba(190,0,0,0.6);
   /* 自由に位置指定 */
@@ -639,6 +584,7 @@ position: absolute;
   left: 0;
   content: ' ';
   border-radius: 15px;
+  z-index: 1;
 }
 
 .product_sold p{
@@ -653,14 +599,15 @@ position: absolute;
   color: white;/*文字は白に*/
   font-weight: bold; /*太字に*/
   font-size: 2em;/*サイズ2倍*/
-font-family :Quicksand, sans-serif;/*Google Font*/
+  font-family :Quicksand, sans-serif;/*Google Font*/
+  z-index: 2;
 }
 
 .product_trading, .product_alive{
   position: relative;
 }
 
-.product_trading::before{
+.product_trading::after{
   /* 透過した黒を上から重ねるイメージ */
   background-color: rgba(30,30,30,0.6);
   /* 自由に位置指定 */
@@ -671,6 +618,7 @@ font-family :Quicksand, sans-serif;/*Google Font*/
   left: 0;
   content: ' ';
   border-radius: 15px;
+  z-index: 1;
 }
 
 .product_trading p{
@@ -686,6 +634,7 @@ font-family :Quicksand, sans-serif;/*Google Font*/
   font-weight: bold; /*太字に*/
   font-size: 1.5em;/*サイズ2倍*/
 font-family :Quicksand, sans-serif;/*Google Font*/
+z-index: 2;
 }
 
 
@@ -694,7 +643,7 @@ font-family :Quicksand, sans-serif;/*Google Font*/
 }
 
 
-.my_product_sold::before{
+.my_product_sold::after{
   /* 透過した黒を上から重ねるイメージ */
   background-color: rgba(190,0,0,0.6);
   /* 自由に位置指定 */
@@ -706,6 +655,7 @@ font-family :Quicksand, sans-serif;/*Google Font*/
   left: 0;
   content: ' ';
   border-radius: 15px;
+  z-index: 1;
 }
 
 .my_product_sold p{
@@ -721,6 +671,7 @@ font-family :Quicksand, sans-serif;/*Google Font*/
   font-weight: bold; /*太字に*/
   font-size: 2em;/*サイズ2倍*/
 font-family :Quicksand, sans-serif;/*Google Font*/
+z-index: 2;
 }
 
 .microposts ul {
@@ -823,6 +774,7 @@ font-family :Quicksand, sans-serif;/*Google Font*/
   position: relative;
   display: inline-block;
 }
+
 .post-year{
   position: absolute;
   left: 8px;
@@ -910,16 +862,12 @@ font-family :Quicksand, sans-serif;/*Google Font*/
   font-size: 20px;
 }
 
-/* .twitter-posting{
-  border-radius: 20px;
-  font-size: 18px;
-  font-weight:bold;
-  padding-top: 20px;
-  padding-left: 15px;
-  height: 50px;
-  width: 70px;
-  margin-bottom:10px;
-  color: white;
-  background-color: #000033;
+.paginate{
+  font-weight: bold;
+}
 
-} */
+.fullscreen-image {
+   cursor: url("images/plus_cursor.png"), pointer; /* マウスポインタを指定 */
+   display: inline-block;   /* 横方向に並べる指定 */
+   /* margin: 0px 5px 5px 0px; /* 周囲の余白量(右と下に5pxずつ) */
+}

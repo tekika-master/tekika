@@ -1,5 +1,4 @@
-
-  <p class="micropost-name">Twitter for Keio</p>
+<p class="micropost-name">Twitter for Keio</p>
 <div class="micropost row pl-0">
     <aside class="col-sm-5">
       <!-- <p class="twitter-posting">投稿</p> -->
@@ -14,7 +13,6 @@
         <div class="form-group">
           <p><b class="search_name pr-3">検索タグ</b>
             <%= f.select :info, [['楽単情報'], ['講義情報'], ['試験情報'], ['ゼミ情報'], ['サークル情報'],['就活情報'], ['その他']] ,{include_blank: '指定なし' } %>
-
           </p>
         </div>
         <%= f.submit '投稿', :style=>"color:white;", class: 'btn btn-primary btn-block' %>

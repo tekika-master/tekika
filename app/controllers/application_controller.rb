@@ -34,3 +34,5 @@ class ApplicationController < ActionController::Base
   end
 
 end
+
+Refile.secret_key = 'ff06c91633c8cf80f54f0e6890adafab8bd731b269523660f8f277e0f3b0823b5535b9a7bc9f9d7938b4aca89dd4222b41175ac68f13edb641acd16c3cbd826d'

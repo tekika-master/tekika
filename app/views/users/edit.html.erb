@@ -1,15 +1,15 @@
 <div class="row m-3">
-  <%= form_with(model: @user, local: true) do |f| %>
+  <%= form_for (@user) do |f| %>
 	  <div class="form-group">
-      <%= f.label :image, 'ユーザー画像', {class: 'name'} %>
+      <%= f.label :profile, 'ユーザー画像', {class: 'name'} %>
       <div id="user_img" onClick="$('#user_file').click()">
-        <% if @user.image? %>
-          <%= image_tag @user.image.url, id:"user_img_prev", :size => '220x220' %>
+        <% if @user.profile.present? %>
+          <%= attachment_image_tag @user, :profile, id:"user_img_prev", :size => '220x220' %>
         <% else %>
           <%= image_tag "/assets/user.jpg", id:"user_img_prev", :size => '220x220' %>
         <% end %>
       </div>
-      <%= f.file_field :image, class: "image", style: "display:none;", id: "user_file"%>
+      <%= f.attachment_field :profile, class: "image", style: "display:none;", id: "user_file"%>
       <script type="text/javascript">
         $(function() {
           function readURL(input) {
@@ -27,10 +27,6 @@
         });
       </script>
     </div>
-
-
-
-
     <div class="form-group">
       <%= f.label :name, '名前', {class: 'name'} %>
       <%= f.text_field :name, class: 'form-control', placeholder:"慶太郎" %>

@@ -36,12 +36,15 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if current_user == @post.user
       @post.update(post_params)
-        flash[:success] = '商品を編集しました。'
+        flash[:success] = '過去問を編集しました。'
       redirect_to '/posts'
-    else current_user.admin?
+    elsif current_user.admin?
       @post.update(post_params)
-        flash[:success] = '商品を編集しました。'
+        flash[:success] = '過去問を編集しました。'
       redirect_to '/posts'
+    else
+      flash.now[:danger] = '過去問の編集に失敗しました。'
+      render 'posts/edit'
     end
   end
 
@@ -69,29 +72,9 @@ end
   private
 
   def post_params
-    params.require(:post).permit(:problem, :campus, :department, :image, :year)
+    params.require(:post).permit(:problem, :campus, :department, :figure, :year)
   end
 
   def search_params
     params.require(:q).permit(:problem)
   end
-
-  # def correct_user
-  #   @post = current_user.products.find_by(id: params[:id])
-  #   unless @post
-  #     redirect_to root_url
-  #   end
-  # end
-
-  # def correct_user
-  #   @post = current_user.posts.find_by(id: params[:id])
-  #   unless @post
-  #     redirect_to root_url
-  #   end
-  # end
-  #
-  # def picture_size
-  #     if picture.size > 5.megabytes
-  #       errors.add(:picture, "should be less than 5MB")
-  #     end
-  # end

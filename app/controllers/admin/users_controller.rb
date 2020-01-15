@@ -2,7 +2,6 @@ class Admin::UsersController < ApplicationController
   before_action :admin_user, only: :destroy
 
   def index
-    # @users = User.all.order(created_at: :desc)
     @q = User.with_discarded.ransack(params[:q])
     @users = @q.result.order(id: :desc).page(params[:page]).per(20)
     @counts = User.count
