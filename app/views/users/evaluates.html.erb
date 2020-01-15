@@ -8,7 +8,7 @@
         <% if @user.profile.present? %>
           <%= attachment_image_tag @user, :profile, id:"user_img_prev", :size => '220x220' ,class:'user-image fullscreen-image'%>
         <% else %>
-          <%= image_tag "/assets/user.jpg", id:"user_img_prev", :size => '220x220',class:'user-image' %>
+          <%= image_tag "/assets/images/user.jpg", id:"user_img_prev", :size => '220x220',class:'user-image' %>
         <% end %>
       </div>
     </div>

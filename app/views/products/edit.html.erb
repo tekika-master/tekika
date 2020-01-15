@@ -7,7 +7,7 @@
           <% if @product.picture.present? %>
             <%= attachment_image_tag @product, :picture, id:"product_img_prev", :size => '180x180' %>
           <% else %>
-            <%= image_tag "/assets/noimage.png", id:"product_img_prev", :size => '180x180' %>
+            <%= image_tag "/assets/images/noimage.png", id:"product_img_prev", :size => '180x180' %>
           <% end %>
         </div>
         <%= f.attachment_field :picture, class: "image", style: "display:none;", id: "product_file"%>
