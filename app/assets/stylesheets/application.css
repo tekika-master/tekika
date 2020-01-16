@@ -31,7 +31,7 @@ li{
 
 .bg-img{
     background:linear-gradient(to top, rgba(150,90 ,0 , 60) 0%, rgba(0, 20, 150, 0.7) 100%),url("keio.png");;
-    background-image: url(“../images/keio.png”);
+    /* background-image: url(“../images/keio.png”); */
     height: 450px;
     background-size:cover;
     border-radius: 15px;
