@@ -5,7 +5,7 @@ class Product < ApplicationRecord
   validates :title, presence: true, length: {maximum: 20 }
   validates :price, presence: true, length: {maximum: 6 }
   validates :lecture, presence: true, length: {maximum: 20 }
-  validates :university, presence: true, length: {maximum: 30 }
+  validates :university, presence: true, length: {maximum: 10 }
   validates :place, presence: true, length: {maximum: 15 }
   validates :writing, presence: true, length: {maximum: 500 }
 
