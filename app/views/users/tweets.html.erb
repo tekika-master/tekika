@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-sm-2.5 pl-5  ml-3">
+  <div class="col-sm-2.5 pl-5  ml-4">
     <div class="card">
       <div class="card-header">
         <h3 class="card-title"><%= @user.name %></h3>
@@ -34,7 +34,7 @@
       <li>🙂</li>
       <li>😨</li>
     </div>
-    <div class="star-number pl-2">
+    <div class="star-number pl-2 pb-2">
     <li><%= link_to @good, reviewed_path(id: @user.id) %></li>
     <li><%= link_to @normal, reviewed_path(id: @user.id) %></li>
     <li><%= link_to @bad, reviewed_path(id: @user.id) %></li>
