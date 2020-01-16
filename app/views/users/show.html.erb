@@ -8,7 +8,7 @@
         <% if @user.profile.present? %>
           <%= attachment_image_tag @user, :profile, id:"user_img_prev", :size => '220x220' ,class:'user-image fullscreen-image'%>
         <% else %>
-          <%= image_tag "/public/user.jpg", id:"user_img_prev", :size => '220x220',class:'user-image' %>
+          <%= image_tag "user.jpg", id:"user_img_prev", :size => '220x220',class:'user-image' %>
         <% end %>
       </div>
       <div class="card-footer", style="width: 262px; display: inline-block; word-break: break-all;">
