@@ -30,9 +30,10 @@ li{
 }
 
 .bg-img{
-    background:linear-gradient(to top, rgba(150,90 ,0 , 60) 0%, rgba(0, 20, 150, 0.7) 100%);
-    background-image: url("./images/keio.jpg");
     height: 450px;
+    background:linear-gradient(to top, rgba(150,90 ,0 , 60) 0%, rgba(0, 20, 150, 0.7) 100%);
+    background-image: image-url("keio.jpg");
+    background-repeat: no-repeat;
     background-size:cover;
     border-radius: 15px;
 }
