@@ -8,8 +8,6 @@
                 <tr>
                     <th width=30>id</th>
                     <th width=200>ユーザー名</th>
-                    <th width=30>出品</th>
-                    <th width=30>投稿</th>
                     <th width=30>学年</th>
                     <th width=200>メールアドレス</th>
                     <th width=30>退会</th>
@@ -19,8 +17,7 @@
                 <% @users.each do |user|%>
                 <tr>
                     <td><%= user.id%></td>
-                    <td> <%= link_to user.name%></td>
-                    
+                    <td> <%= link_to user.name, @user%></td>
                     <td><%= user.year%></td>
                     <td><%= user.email%></td>
                     <% if current_user == user %>
