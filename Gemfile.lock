@@ -1,11 +1,32 @@
 GIT
-  remote: https://github.com/manfe/refile.git
-  revision: 46b4178654e60bb5846b1423acf6d0740cdecc25
+  remote: https://github.com/refile/refile-mini_magick.git
+  revision: 5c7c30d57a94c4104d84eb4eb9e74ca757c1a773
   specs:
-    refile (0.6.2)
+    refile-mini_magick (0.2.0)
+      image_processing (~> 1.1)
+      mini_magick (~> 4.0)
+      refile (~> 0.6)
+
+GIT
+  remote: https://github.com/refile/refile.git
+  revision: c4ac577c6fdad92bc079a62a0e82888319daedc8
+  specs:
+    refile (0.7.0)
       mime-types
-      rest-client (~> 2)
-      sinatra (~> 2.0.0.beta2)
+      sinatra (>= 2.0.0, <= 3.0.0)
+
+GIT
+  remote: https://github.com/sinatra/sinatra.git
+  revision: ae70708d21db79de7d8ef8195d356c2fa76a2d3a
+  branch: master
+  specs:
+    rack-protection (3.0.0)
+      rack
+    sinatra (3.0.0)
+      mustermann (~> 1.0)
+      rack (~> 2.2)
+      rack-protection (= 3.0.0)
+      tilt (~> 2.0)
 
 GEM
   remote: https://rubygems.org/
@@ -75,8 +96,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.1.5)
-    crass (1.0.5)
+    concurrent-ruby (1.1.9)
+    crass (1.0.6)
     devise (4.7.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -85,21 +106,16 @@ GEM
       warden (~> 1.2.3)
     discard (1.1.0)
       activerecord (>= 4.2, < 7)
-    domain_name (0.5.20190701)
-      unf (>= 0.0.5, < 1.0.0)
-    erubi (1.9.0)
+    erubi (1.10.0)
     execjs (2.7.0)
-    ffi (1.11.3)
+    ffi (1.15.5)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    http-accept (1.7.0)
-    http-cookie (1.0.3)
-      domain_name (~> 0.5)
-    i18n (1.7.0)
+    i18n (1.10.0)
       concurrent-ruby (~> 1.0)
-    image_processing (1.10.0)
+    image_processing (1.12.2)
       mini_magick (>= 4.9.5, < 5)
-      ruby-vips (>= 2.0.13, < 3)
+      ruby-vips (>= 2.0.17, < 3)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
     jquery-rails (4.3.5)
@@ -122,7 +138,7 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    loofah (2.4.0)
+    loofah (2.14.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -130,22 +146,22 @@ GEM
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (0.9.2)
-    mime-types (3.3.1)
+    mime-types (3.4.1)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2019.1009)
+    mime-types-data (3.2022.0105)
     mimemagic (0.3.3)
-    mini_magick (4.9.5)
+    mini_magick (4.11.0)
     mini_mime (1.0.2)
-    mini_portile2 (2.4.0)
-    minitest (5.13.0)
+    mini_portile2 (2.6.1)
+    minitest (5.15.0)
     msgpack (1.3.1)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
     mysql2 (0.5.3)
-    netrc (0.11.0)
     nio4r (2.5.2)
-    nokogiri (1.10.7)
-      mini_portile2 (~> 2.4.0)
+    nokogiri (1.12.5)
+      mini_portile2 (~> 2.6.1)
+      racc (~> 1.4)
     orm_adapter (0.5.0)
     polyamorous (2.3.0)
       activerecord (>= 5.0)
@@ -162,9 +178,8 @@ GEM
       pry (>= 0.10.4)
     public_suffix (4.0.2)
     puma (3.12.2)
-    rack (2.0.8)
-    rack-protection (2.0.8.1)
-      rack
+    racc (1.6.0)
+    rack (2.2.3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.4.1)
@@ -183,7 +198,7 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.3.0)
+    rails-html-sanitizer (1.4.2)
       loofah (~> 2.3)
     rails-i18n (5.1.3)
       i18n (>= 0.7, < 2)
@@ -205,22 +220,12 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    refile-mini_magick (0.2.0)
-      mini_magick (~> 4.0)
-      refile (~> 0.5)
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
-
-    rest-client (2.1.0)
-      http-accept (>= 1.7.0, < 2.0)
-      http-cookie (>= 1.0.2, < 2.0)
-      mime-types (>= 1.16, < 4.0)
-      netrc (~> 0.8)
-
-    ruby-vips (2.0.16)
-      ffi (~> 1.9)
-    ruby2_keywords (0.0.2)
+    ruby-vips (2.1.4)
+      ffi (~> 1.12)
+    ruby2_keywords (0.0.5)
     ruby_dep (1.5.0)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
@@ -233,11 +238,6 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    sinatra (2.0.8.1)
-      mustermann (~> 1.0)
-      rack (~> 2.0)
-      rack-protection (= 2.0.8.1)
-      tilt (~> 2.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -256,15 +256,12 @@ GEM
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
-    tzinfo (1.2.6)
+    tzinfo (1.2.9)
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
-    unf (0.1.4)
-      unf_ext
-    unf_ext (0.0.7.6)
-    warden (1.2.8)
-      rack (>= 2.0.6)
+    warden (1.2.9)
+      rack (>= 2.0.9)
     web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -299,11 +296,10 @@ DEPENDENCIES
   rails-i18n
   ransack
   ratyrate
-
   refile!
-  refile-mini_magick
-
+  refile-mini_magick!
   sass-rails (~> 5.0)
+  sinatra!
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
